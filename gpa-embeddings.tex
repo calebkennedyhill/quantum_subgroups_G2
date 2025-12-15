@@ -7,7 +7,7 @@ Subsection~\ref{subsec:extend-level-4} discusses some of the representation theo
 search for $\Z_n$-like extensions in the first place;
 in this respect, we discuss only the details of level 4, but the story at level 3 is essentially the same.
 
-We find our fusion graphs by orbifolding the graphs in Figures 18b and 21b of \cite{g2_graphs}.
+We find our module fusion graphs by orbifolding the graphs in Figures 18b and 21b of \cite{g2_graphs}.
 These graphs are shown in Figure~\ref{fig:new-graphs}.
 
 \begin{figure}
@@ -117,26 +117,26 @@ These graphs are shown in Figure~\ref{fig:new-graphs}.
 % \end{figure}
 
 
-One may give a monoidal functor $F:\GG_2(q_k) \to \GPA(\Gamma)$ by specifying the image of the morphism 
+One may give a monoidal functor $F:\GG_2(q) \to \GPA(\Gamma)$ by specifying the image of the morphism 
 \[
 F\left( \skein{skein_figs/trivalent}{0.08} \right) \in \Hom_{\GPA(\Gamma)}(2\to1).
 \]
 This amounts to giving a list of $M\coloneqq\tr(\Gamma^2\cdot\Gamma)$ complex numbers\footnote{
     We freely switch between using $\Gamma$ to mean the graph itself and the graph's adjacency matrix. }, 
 say $a_1,\dots,a_M$. 
-Pushing the defining relations of $\GG_2(q_k)$ through $F$, we see that 
+Pushing the defining relations of $\GG_2(q)$ through $F$, we see that 
 these complex numbers satisfy equations in the $a_i$ and $\ol{a_i}$. 
 If we assume for now that each $a_i$ is real, then this reduces the system to a collection 
-of polynomials in the $a_i$ \footnote{
+of polynomials in the $a_i$. \footnote{
     This assumption is useful only if it turns out to help us solve the system. 
-    In fact, any assumptions we make about this system, if they yield solutions, are in some way valid.
-    }.
+    In fact, any assumptions we make about this system, if they yield solutions, are valid.
+    }
 Once we have the image of the trivalent vertex in hand, we have found an embedding of the planar algebra it generates. 
 We can then follow a similar approach to solve for the image
 \[
 F\left( \skein{skein_figs/dec_tet_5}{0.08} \right) \in \Hom_{\GPA(\Gamma)}(2\to2)
 \]
-to extend the GPA embedding of $\GG_2(q_k)$ to an embedding of $\DD_k$.
+to extend the GPA embedding of $\GG_2(q)$.
 Let us discuss our examples.
 
 
@@ -155,37 +155,47 @@ Why this verification amounts to a proof requires some explanation, and is discu
 below the theorem.
 
 \begin{theorem}\label{thm:G2-level4-GPA-emb}
-    There is a faithful monoidal functor $\ol{F_4}:\ol{\GG_2(q_3)} \hookrightarrow \GPA(\Gamma_4)$.
+    There is a faithful monoidal functor $\ol{F_4}:\ol{\GG_2(q_4)} \hookrightarrow \GPA(\Gamma_4)$.
 \end{theorem}
 \begin{proof}
-    We first construct a monoidal functor $F_4: \GG_2(q_3) \hookrightarrow \GPA(\Gamma_4)$, and then 
+    We first construct a monoidal functor $F_4: \GG_2(q_4) \hookrightarrow \GPA(\Gamma_4)$, and then 
     apply Lemma~\ref{lem:simple-unit-unitary}.
-    See the Mathematica notebook \verb|/code/level-4/nb-5_verify-triv.nb| for a definition of $F_4$
-    and verification of the necessary equations.
+    % See the Mathematica notebook \verb|/code/level-4/nb-5_verify-triv.nb| for a definition of $F_4$
+    % and verification of the necessary equations.
+
+
+    % Let us now explain why a proof of the above result amounts to a verification of a system of 
+    % linear, quadratic, cubic, quartic, and quintic 
+    % equations.
+    Let 
+    \[
+        (p_1,q_1),\dots,(p_M,q_M)
+    \]
+    be the defining basis\footnote{ 
+        See the attached Mathematica files for the specific ordering chosen. } 
+    for $\Hom_{\GPA(\Gamma_4)}(2\to1)$; at level 4 we have $M=88$. 
+    Then it must be that 
+    \[
+        F_4 \left( \skein{skein_figs/trivalent}{0.08} \right) = a_1(p_1,q_1)+\cdots+ a_M(p_M,q_M)
+    \]
+    for some $a_1,\dots,a_M \in \C$.
+    The \ref{eq:Bigon} relation, when sent through $F$, becomes the system
+    \[
+        \sum_{i=1}^M a_i(p_i,q_i) \circ \sum_{j=1}^M a_j(q_j,p_j) = k^2 \sum_{e\in E(\Gamma)} (e,e).
+    \]
+    This system is quadratic in the $a_i$ since it involves up to two trivalent vertices on either side. 
+    Similarly, the (Schur 0, 1) and (Rotate) relations therefore determine a system of linear equations; 
+    the (Trigon), (Tetragon), and (Pentagon) give cubic, quartic, and quintic equations, respectively. 
+    To show $F_4$ is a monoidal functor amounts to showing that the equations in the $a_i$ induced 
+    by the relations in $G_2(q_4)$ are all satisfied.
+    This is verified in the Mathematica notebook \verb|/code/level-4/nb-6_verify-g.nb|.
 \end{proof}
 
-Let us now explain why a proof of the above result amounts to a verification of a system of 
-% linear, quadratic, cubic, quartic, and quintic 
-equations.
-Let 
-\[
-    (p_1,q_1),\dots,(p_M,q_M)
-\]
-be the defining basis\footnote{ 
-    See the attached Mathematica files for the specific ordering chosen. } 
-for $\Hom_{\GPA(\Gamma)}(2\to1)$ ($M=88$ at level 4). Then it must be that 
-\[
-    F_4 \left( \skein{skein_figs/trivalent}{0.08} \right) = a_1(p_1,q_1)+\cdots+ a_M(p_M,q_M)
-\]
-for some $a_1,\dots,a_M \in \C$.
-The \ref{eq:Bigon} relation, when sent through $F$, becomes the system
-\[
-    \sum_{i=1}^M a_i(p_i,q_i) \circ \sum_{j=1}^M a_j(q_j,p_j) = k^2 \sum_{e\in E(\Gamma)} (e,e).
-\]
-This system is quadratic in the $a_i$ since it involves up to two trivalent vertices on either side. 
-The \ref{eq:Lolli} and \ref{eq:Rotate} relations therefore determine a system of linear equations; 
-the others give cubic, quartic, and quintic equations. 
-It is often useful to solve the linear subsystem first and substitute the solution into the quadratic equations. 
+The above proof does not mention the process used to arrive at such a definition of $F_4$.
+We briefly mention it here.
+For more details, see the author's PhD thesis \cite{hill_thesis}.
+
+To go about solving these equations, it is often useful to solve the linear subsystem first and substitute the solution into the quadratic equations. 
 For example, when we substitute the linear solution into the (Bigon) and (Tetragon) equations, 
 we are able to isolate the following resulting equations:
 
@@ -216,7 +226,7 @@ Up to three choices of sign, the solution to this system is
     a_{85} & = \sqrt{2+\sqrt{3}-\sqrt{2+\sqrt{3}}} \\
 \end{align*}
 Similar equations containing $a_{31}$, $a_{55}$, and $a_{63}$ appear as well. 
-We may repeat this process and obtain the additional values
+We repeat the process and obtain the additional values
 \begin{align*}
     a_{31} & = \sqrt{2+\sqrt{3}-\sqrt{2+\sqrt{3}}} \\
     a_{55} & = \sqrt{1-\sqrt{\frac{3}{2}}+\frac{1}{\sqrt{2}}} \\
@@ -244,49 +254,51 @@ take on the following values:
     \alpha_9 & = \frac{1}{2} \left(\sqrt{1+\sqrt{6-3 \sqrt{3}}}+\sqrt{\sqrt{2+\sqrt{3}}-1}\right). \\
 \end{align*}
 These coordinates of $F_4 \left( \skein{skein_figs/trivalent}{0.08} \right)$ give us a definition of $F_4$.
-To show $F_4$ is a monoidal functor amounts to showing that all defining relations of $\GG_2(q)$ are satisfied 
-by $F_4 \left( \skein{skein_figs/trivalent}{0.08} \right)$.
-This is verified in the Mathematica notebook \verb|/code/level-4/nb-6_verify-g.nb|.
+
+
+
+
 
 
 \subsection{Extension of level 4}\label{subsec:extend-level-4}
 With our embedding of $\GG_2(q_4)$, i.e. the coordinates of $F_4 \left( \skein{skein_figs/trivalent}{0.08} \right)$, in hand, 
-we now know where to find a subcategory of $\GPA(\Gamma_4)$ isomorphic to $\GG_2(q_4)$.
+we now know where to find a subcategory of $\GPA(\Gamma_4)$ isomorphic to $\ol{\GG_2(q_4)}$.
 In practice, we are relying on the fact that the free functor gives an embedding 
 \[
     \ol{\Rep(U_{q_4}(\gg_2))} \hookrightarrow \ol{\Rep(U_{q_4}(\gg_2))}_{A_4}
 \]
-which takes the simple $\otimes$-generator $X_4$ to a simple $\otimes$-generator which we denote by $Y_4$.\footnote{
+which takes the simple $\otimes$-generator $X_4$ to a simple $\otimes$-generator $Y_4\coloneq \FF_{A_4}(X_4)$.\footnote{
     Simplicity of $Y_4$ may be easily checked using the $X_4$ fusion graph of $\ol{\Rep(U_{q_4}(\gg_2))}$. }
 Combine this with the facts that $\ol{\Rep(U_{q_4}(\gg_2))}_{A_4}$ contains a subcategory equivalent to $\Vecc{\Z_2}$,
 and that both of the grouplike simples are subobjects of the square of the $\otimes$-generator $Y_4$.
 One concludes that $\Hom_{\ol{\Rep(U_{q_4}(\gg_2))}_{A_4}}(Y_4^{\otimes2}\to Y_4^{\otimes2})$ 
 contains a projection onto a $\Z_2$-like simple object 
-which follows relations analogous to (Recouple) - (decBigon).
-Now, to enlarge our copy of $\GG_2(q_4)$ to a $\Z_2$-like extension, we must find 
-and element of $\Hom_{\GPA(\Gamma_4)}(2\to 2)$ which captures the behavior of 
-the idempotent; the role will be played by $\skein{skein_figs/dec_tet_5}{0.08}$.
+which follows relations analogous to (Recouple), (Schur 0, 1), (Swap), and (decStick).
+Now, to enlarge our copy of $\ol{\GG_2(q_4)}$ to a $\Z_2$-like extension, we begin by finding 
+an element of $\Hom_{\GPA(\Gamma_4)}(2\to 2)$ which satisfies the relations
+(Recouple), (Schur 0, 1), (Swap), and (decStick); 
+the role will be played by $\skein{skein_figs/dec_tet_5}{0.08}$.
 
 To this end, we take an approach similar to the one of the previous subsection.
 We may identify $\GG_2(q_4)$ with the trivalent subcategory of $\DD_4$,
 and now view $F_4$ as a functor out of this subcategory.
-To finish the definition of $F_4$ to be a functor out of $\DD_4$, we must find
-the image
+To finish the definition of $F_4$, we must find the image
 \[
     F_4\left( \skein{skein_figs/dec_tet_5}{0.08} \right) \in \Hom_{\GPA(\Gamma_4)}(2\to2)
 \]
-satisfying the defining relations of $\DD_4$.
+satisfying (Recouple), (Schur 0, 1), (Swap), and (decStick).
 We follow a process similar to solving for the image $F_4\left( \skein{skein_figs/trivalent}{0.08} \right)$.
-That is, we assume that for some $b_1,\dots,b_N \in \C$ where $N \coloneq \tr(\Gamma^2 \cdot \Gamma^2)$, we have
+That is, we assume that for some $b_1,\dots,b_N \in \C$ where $N \coloneq \tr(\Gamma_4^2 \cdot \Gamma_4^2) =400$ 
+at level 4, we have
 \[
     F_4\left( \skein{skein_figs/dec_tet_5}{0.08} \right) = \sum_{i=1}^N b_i (p'_i,q'_i).
 \]
-We may push the relations (Schur 0), (Schur 1), and (decStick) through $F_4$, and obtain a set of equations 
-in the $b_i$.
+We may push the relations (Schur 0), (Schur 1), and (decStick) through $F_4$, and obtain 
+a set of linear equations in the $b_i$.
 We additionally obtain a large linear system which follows from Lemma~\ref{lem:general-half-braid}.
 In the present context, this lemma states that our projection $\skein{skein_figs/dec_tet_5}{0.08}$ 
 satisfies the relation
-\begin{equation*}
+\begin{equation*}\tag{Half-braid}
     \skein{/skein_figs/hb_top}{0.11} = \skein{/skein_figs/hb_bottom}{0.15}
 \end{equation*}
 where the unoriented red strand indicates that the equation 
@@ -294,21 +306,34 @@ holds whenever we pick the same orientation for the left and right sides.
 Solving these new equations gives us the coordinates of the projection $F_4\left( \skein{skein_figs/dec_tet_5}{0.08} \right)$.
 
 
-\begin{theorem}\label{thm:D4-GPA-emb}
-    There exists an element $P_4 \in\Hom_{\GPA(\Gamma_4)}(2\to 2)$ satisfying the $\Z_2$-like extension relations, 
-    with structure constants given by those in Definition~\ref{def:D4}.
+\begin{theorem}\label{thm:init-D4-GPA-emb}
+    There exists an element $P_4 \in\Hom_{\GPA(\Gamma_4)}(2\to 2)$ satisfying the relations
+    (Schur 0, 1), (decStick), and (Half-braid)
 \end{theorem}
 \begin{proof}
-    See the Mathemaica notebook \verb|/code/level-4/nb-6_verify-g.nb| for verification.
+    See the mathematica notebook \verb|/code/level-4/nb-6_verify-g.nb| for verification.
 \end{proof}
-
 
 
 
 Tables~\ref{tab:lvl-4-proj-coefs-1} and \ref{tab:lvl-4-proj-coefs-2} hold numerical approximations 
 of the nonzero projection coordinates.
 There are blocks of nonzero coordinates of length 4 and 25. 
-These sizes, and the location of the nonzero real coordinates follow naturally when one considers Remark~\ref{rem:Pg-properties}.
+These sizes, and the location of the nonzero real coordinates follow naturally 
+when one considers Remark~\ref{rem:Pg-properties}.
+Recall that the defining bases for the spaces 
+\[
+    \Hom_{\GPA(\Gamma)}(m\to n)
+\]
+are given in terms of pairs of paths. 
+The (undirected) graphs we are using have at most a single edge between any two vertices. 
+Hence an edge is equivalent to a pair of vertices, and a path is equivalent to an ordered tuple of vertices. 
+For example, the path
+\[
+    p = v_1 \longrightarrow v_2 \longrightarrow v_3
+\]
+is equivalent to the ordered triple $(v_1,v_2,v_3)$. 
+
 The only coordinates of the projection in the GPA which are nonzero are at those basis vectors 
 \[
     (i \to\blank\to j, i \to\blank\to j)
@@ -327,7 +352,8 @@ That is, the column labeled by $1\to\blank\to1$ shows the coordinates on the ord
     (1\to 3 \to1, 1\to 3 \to1) \\
 \end{align*}
 
-With this ordering in mind, and recalling that the GPA's dagger operation swaps paths, the conjugate pairs appear where one would expect them.
+With this ordering in mind, and recalling that the GPA's dagger operation swaps paths, 
+the conjugate pairs appear where one would expect them.
 
 
 \begin{table}
@@ -382,7 +408,56 @@ With this ordering in mind, and recalling that the GPA's dagger operation swaps 
 
 
 
-As an immediate consequence of Theorems~\ref{thm:G2-level4-GPA-emb} and \ref{thm:D4-GPA-emb} we have the following corollary.
+
+
+
+\subsection{New Relations at Level 4}
+We open this subsection with its primary result, then introduce the techniques we used to arrive at it.
+
+\begin{theorem}\label{thm:D4-new-relns}
+    The element $P_4 \in\Hom_{\GPA(\Gamma_4)}(2\to 2)$ satisfies the defining relations of $\DD_4$
+    given in Definition~\ref{def:D4}.
+\end{theorem}
+
+Our initial discovery, Theorem~\ref{thm:init-D4-GPA-emb}, makes no mention of the relations 
+(Swap), (Change of Basis), (decTrigon), (decTetragon), or (decPentagon).
+That is, the structure constants in these relations were unknown before exploring our GPA embedding.
+
+In order to discover these new relations,
+we hypothesize the form such a relation should take, impose that form, and solve for the structure constants.
+For example we would suppose, based the simplicity of $Y_4$ and the invertibility of $g_4$, that an equation of the form
+\[
+    F_k\left( \skein{/skein_figs/swap_LHS}{0.15} \right) = \omega F_k\left( \skein{/skein_figs/swap_RHS}{0.15} \right)
+\]
+holds, for some $\omega$.
+By ($\Z_n$), $\omega$ must be an $n$-th root of 1.
+With our explicit GPA embeddings of the projection in hand, discovering what $\omega$ is becomes a matter of solving
+a system of linear equations for one variable.
+
+Discovering the (decTrigon) structure constants is similarly reduced to solving a system of linear equations of the form
+\[
+F_k\left( \skein{/skein_figs/dec_trigon_LHS}{0.1} \right)= 
+        t_1 F_k\left( \skein{/skein_figs/trivalent}{0.1} \right) 
+        + t_2 F_k\left( \skein{/skein_figs/triv_rightUp}{0.1} \right)
+\]
+for $t_1$ and $t_2$.
+The same principle applies when searching for the relations (decTetragon) and (decPentagon).
+In practice, discovering that, e.g., the coefficient of the summand \skein{/skein_figs/dec_pent_RHS1}{0.07}
+in the (decPentagon) relation is $q^8 - q^4 + \frac{1}{q^4} + \frac{1}{q^2}$ 
+required the use of some novel computational algebraic number theory.
+For more details, see the author's PhD thesis \cite{hill_thesis}.
+
+
+
+
+
+
+
+
+
+
+As an immediate consequence of Theorems~\ref{thm:G2-level4-GPA-emb} 
+and \ref{thm:D4-new-relns} we have the following corollary.
 
 \begin{corollary}\label{cor:D4-unitary}
     The category $\DD_4$ is a nontrivial $\Z_2$-like extension of $\GG_2(q_4)$, 
@@ -422,32 +497,6 @@ For now, we turn to a discussion of how we obtain the $\DD_4$ structure constant
 
 
 
-\subsection{New Relations at Level 4}
-When finding GPA embedding of $\DD_4$, we did not use the relations 
-(Swap), (Change of Basis), (decTrigon), (decTetragon), or (decPentagon).
-That is, the structure constants in these relations were unknown before exploring our GPA embedding.
-
-In order to discover these new relations,
-we hypothesize the form such a relation should take, impose that form, and solve for the structure constants.
-For example we would suppose, based the simplicity of $Y_4$ and the invertibility of $g_4$, that an equation of the form
-\[
-    F_k\left( \skein{/skein_figs/swap_LHS}{0.15} \right) = \omega F_k\left( \skein{/skein_figs/swap_RHS}{0.15} \right)
-\]
-holds, for some $\omega$.
-With our explicit GPA embeddings of the projection in hand, discovering what $\omega$ is becomes a matter of solving
-a system of linear equations for one variable.
-
-Discovering the (decTrigon) structure constants is similarly reduced to solving a system of linear equations of the form
-\[
-F_k\left( \skein{/skein_figs/dec_trigon_LHS}{0.1} \right)= 
-        t_1 F_k\left( \skein{/skein_figs/trivalent}{0.1} \right) 
-        + t_2 F_k\left( \skein{/skein_figs/triv_rightUp}{0.1} \right)
-\]
-for $t_1$ and $t_2$.
-In practice, the hom-spaces in the GPAs we used were sufficiently large 
-making solving all of these equations fairly straightforward.
-
-
 
 
 
@@ -464,19 +513,19 @@ making solving all of these equations fairly straightforward.
 We now tell a similar story, but at level 3.
 However, for the trivalent coefficients we use numerical approximations here, 
 and relegate the actual numbers to the attached Mathematica files.
-We were unable to find presentable representations of the GPA-embedding coordinates or structure constants.
+We were unable to find reader-friendly representations of the GPA-embedding coordinates or structure constants.
 The coordinates for the trivalent GPA embedding were algebraic numbers of degree 12 or 24.
 Even worse, the structure constants for the relations (Change of Basis), (decTrigon), (decTetragon), and (decPentagon) 
 are all of the form
 \[
-    g_1 + g_2 \alpha^2 + g_3 q_3 + g_4 \alpha^2 q_3
+    c_1 + c_2 \alpha^2 + c_3 q_3 + c_4 \alpha^2 q_3
 \]
-where $g_i\in \Q(q_3+q_3^{-1})$, the maximal real subfield of $\Q(q_3)$, 
+where $c_i\in \Q(q_3+q_3^{-1})$, the maximal real subfield of $\Q(q_3)$, 
 and $\alpha$ is an algebraic number of degree 24 which appears as a coordinate of 
 $F_3 \left( \skein{skein_figs/trivalent}{0.08} \right)$.
-For the relations (Change of Basis) and (decTrigon), the power basis coordinates of the $g_i$ are lowest form rational numbers 
+For the relations (Change of Basis) and (decTrigon), the power basis coordinates of the $c_i$ are lowest form rational numbers 
 whose numerators have one or two digits.
-For (decTetrgon), the numerators and denominators of the power basis coordinates of the $g_i$ have around 10 digits on average.
+For (decTetragon), the numerators and denominators of the power basis coordinates of the $c_i$ have around 10 digits on average.
 In the (decPentagon) relation, this digit count explodes to around 135.
 
 Let $\Gamma_3$ be the graph given in the right side of Figure~\ref{fig:new-graphs}.
@@ -488,24 +537,12 @@ The following result gives us a GPA embedding of $\ol{\GG_2(q_3)}$.
 \end{theorem}
 \begin{proof}
     Similar to Theorem~\ref{thm:G2-level4-GPA-emb}.
-    See the Mathematica notebook \verb|/code/level-4/nb-6_verify-g.nb| for 
+    See the Mathematica notebook \[\verb|/code/level-4/nb-6_verify-g.nb|\] for 
     verification of the necessary equations.
 \end{proof}
 
 Despite the more difficult numbers, we are able to recover some of the structure of the fusion graph in the GPA coordinates.
-Recall that the defining bases for the spaces 
-\[
-    \Hom_{\GPA(\Gamma)}(m\to n)
-\]
-are given in terms of pairs of paths. 
-The (undirected) graphs we are using have at most a single edge between any two vertices. 
-Hence an edge is equivalent to a pair of vertices, and a path is equivalent to an ordered tuple of vertices. 
-For example, the path
-\[
-    p = v_1 \longrightarrow v_2 \longrightarrow v_3
-\]
-is equivalent to the ordered triple $(v_1,v_2,v_3)$. 
-Which paths $q$ pair validly with $p$ to form a basis element of the $2\to 1$ hom-space of a GPA? 
+Given a path $p$, which paths $q$ pair validly with $p$ to form a basis element of the $2\to 1$ hom-space of a GPA? 
 Well, by definition, $q$ must be parallel to $p$; i.e. the sources and targets of $p$ and $q$ must coincide. 
 It follows that the only valid pairing for such $p$ is
 \[
@@ -560,8 +597,12 @@ One may use the symmetry $2 \xleftrightarrow{} 4$ to find the rest of the coordi
 
 
 \subsection{Extension of level 3}
+We quickly give the analogous results to Theorem~\ref{thm:D4-new-relns} 
+and Corollaries~\ref{cor:D4-unitary} and \ref{cor:D4-dagger-emb}.
+However, we skip the intermediate version of Theorem~\ref{thm:init-D4-GPA-emb}.
+
 \begin{theorem}\label{thm:D3-GPA-emb}
-    There exists an element $P_3  \in\Hom_{\GPA(\Gamma_3)}(2\to 2)$ satisfying the $\Z_2$-like extension relations, 
+    There exists an element $P_3 \in\Hom_{\GPA(\Gamma_3)}(2\to 2)$ satisfying the $\Z_3$-like extension relations, 
     with structure constants given in the Mathematica notebook \verb|/code/level-3/nb-6_verify-g.nb|.
 \end{theorem}
 \begin{proof}
