@@ -18,8 +18,11 @@ The categories one might next attempt such an extension of include:
     \item The category $H_3$ of \cite[Theorem C]{tricats}
 \end{itemize}
 
-General methods for demonstrating evaluability of a skein theory involve identifying some measure of complexity for a closed diagram, then showing the known relations allow one to strictly decrease this measure. 
-For our underlying trivalent categories, {\it Euler-evaluability} allows us to decrement one measure of complexity: number of internal faces. 
+General methods for demonstrating evaluability of a skein theory involve identifying 
+some measure of complexity for a closed diagram, then showing the known 
+relations allow one to strictly decrease this measure. 
+For our underlying trivalent categories, {\it Euler-evaluability} allows us to 
+decrement one measure of complexity: number of internal faces. 
 With the new strand type, we have another measure: number of red strands. 
 The underlying trivalent categories we deal with have evaluation algorithms based on the standard Euler characteristic argument.
 One way to capture this evaluability is by considering dimensions of box spaces.
@@ -47,12 +50,12 @@ The defining relations for a $\Z_n$-like extension then pop the singly-decorated
 
     \begin{equation*}\tag{$\Z_n$}
         \underbrace{ \skein{/skein_figs/n_g_strands}{0.08} }_{\text{$n$}} 
-        = z \skein{/skein_figs/dec_tet_3}{0.2}
+        = \skein{/skein_figs/dec_tet_3}{0.2}
     \end{equation*}
 
     \begin{equation*}\tag{Split}
         \underbrace{ \skein{/skein_figs/split_LHS}{0.125} }_{\text{$n$}} 
-        = s \underbrace{ \skein{/skein_figs/split_RHS}{0.085} }_{\text{$n$}}
+        = \frac{1}{\delta^2} \underbrace{ \skein{/skein_figs/split_RHS}{0.085} }_{\text{$n$}}
     \end{equation*}
 
 \end{lemma}
@@ -95,7 +98,7 @@ The defining relations for a $\Z_n$-like extension then pop the singly-decorated
 We use this fact in the proof of the following lemma.
 
 \begin{lemma}\label{lem:ext-dec}
-    A decorated {\bf boxy} diagram in a $\Z_n$-like extension may be expressed as a $\C$-linear combination 
+    In a cyclic extension, any decoration of a diagram with one internal face may be expressed as a $\C$-linear combination 
     of singly-externally decorated diagrams
 \end{lemma}
 
@@ -136,14 +139,11 @@ One more lemma will complete our ability to evaluate closed diagrams in $\Z_n$-l
 \begin{lemma}\label{lem:decorated-graph}
     Suppose a diagram $\EE$ in a $\Z_n$-like extension consists only of black loops and 
     red oriented edges between them. 
-    Suppose furthermore that each loop of $\EE$ has either exactly $n$ strands entering or exactly $n$ strands leaving.
+    Suppose furthermore that each loop of $\EE$ has either exactly $n$ red strands entering or exactly $n$ red strands leaving.
     Then the diagram $\EE$ evaluates to a scalar.
 \end{lemma}
 
 \begin{proof}
-    First note that any oriented edges starting and ending from the same black loop may be removed
-    using (Swap) and (decStick).
-    So assume there are only oriented edges between distinct black loops.
     We'll use graph theoretic language, with black loops playing the role of nodes,
     and oriented red edges playing the role of oriented edges.
 
@@ -207,9 +207,9 @@ One more lemma will complete our ability to evaluate closed diagrams in $\Z_n$-l
 
 
 
-\begin{proposition}\label{prop:eval-criteria}
+\begin{theorem}\label{thm:eval-criteria}
     A $\Z_n$-like extension of an Euler-evaluable trivalent category is evaluable.
-\end{proposition}
+\end{theorem}
 
 \begin{proof}
     Suppose we begin with a diagram given by a closed, decorated planar trivalent graph.
@@ -241,9 +241,3 @@ As with all evaluability arguments, if we have nontriviality, we immediately ded
         \dim\Hom_{\DD} (0\to 0) \leq 1.
     \]
 \end{corollary}
-
-For each quantum subgroup we construct, we will find planar algebras satisfying the conditions of 
-Proposition~\ref{prop:eval-criteria}, and thus will know the planar algebras are evaluable. 
-
-
-
