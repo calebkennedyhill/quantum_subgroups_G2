@@ -9,7 +9,7 @@ For the general theory of tensor categories, see \cite{EGNO}.
 \subsection{Algebra and Module Objects}
 We will ultimately show that $\DD_3$ and $\DD_4$ are presentations for the categories
 $\cat{q_3}_{A_3}$ and $\cat{q_4}_{A_4}$ of modules over algebra objects $A_3$ and $A_4$ coming from the conformal embeddings 
-$\CC(\gg_2,3) \subseteq \CC(\ee_6,1)$ and $\CC(\gg_2,4) \subseteq \CC(\dd_7,1)$, respectively. 
+$\VV(\gg_2,3) \subseteq \VV(\ee_6,1)$ and $\VV(\gg_2,4) \subseteq \VV(\dd_7,1)$, respectively. 
 In this subsection we recall basic facts about algebra and module objects,
 as well as conformal embeddings. 
 See \cite{EGNO, ostrik2001modulecategoriesweakhopf} for more complete descriptions. 
@@ -23,19 +23,19 @@ Unless otherwise stated, we will be assuming the underlying tensor categories ar
 
 \begin{definition}
     Let $A$ be an algebra object of the braided tensor category $\CC$.
-    $A$ is an {\bf Etale} algebra if it is commutative and separable.
-    We call $A$ {\bf connected} if it is Etale and $\dim\Hom_\CC(\unit \to A)=1$.
+    $A$ is an {\bf etale} algebra if it is commutative and separable.
+    We call $A$ {\bf connected} if it is etale and $\dim\Hom_\CC(\unit \to A)=1$.
 \end{definition}
 
 
-For an Etale algebra object $A$ of $\CC$, we denote by $\CC_A$ the collection of right $A$-modules internal to $\CC$.
-As described in \cite{cain_noah}, a braiding on $\CC$ induces a tensor product on $\CC_A$.
+For an etale algebra object $A$ of $\CC$, we denote by $\CC_A$ the collection of right $A$-modules internal to $\CC$.
+As described in \cite{cain_noah}, commutativity of $A$ induces a tensor product on $\CC_A$.
 Separability of $A$ implies semisimplicity of $\CC_A$, 
 and connectedness of $A$ implies the unit $\unit_{\CC_A}=A$ is simple in $\CC_A$ \cite{DMNO}.
 
-The Etale conditions are precisely those required to perform the skein theory on $A$-modules 
+The etale conditions are precisely those required to perform the skein theory on $A$-modules 
 to define the tensor product on $\CC_A$.
-Etale is the same thing as multiplication having a section, which means we can pop $A$-bigons.
+etale is the same thing as multiplication having a section, which means we can pop $A$-bigons.
 Connected means theres only one $A$-cap and one $A$-cup.
 This lets us wiggle enough to perform the proof that $M\otimes_A N$ is well-defined.
 
@@ -43,7 +43,7 @@ Furthermore, when $\CC$ is semisimple, the free functor
 \[
     \FF_A: \CC \xhookrightarrow{X\mapsto A\otimes X} \CC_A
 \]
-is a monoidal embedding which is, as we will see later, not always full.
+is faithful monoidal and, as we will see later, not always full.
 Its right adjoint is the forgetful functor $\FF^\vee:\CC_A\to\CC$ 
 which acts on objects $(M,\mu_M)$ by dropping the multiplication map $\mu_M: M\otimes A\to M$
 and on morphisms as the identity.
@@ -89,7 +89,7 @@ Since the free functor is in general not full, we cannot extend this to a braidi
 however, there is a half-braid for arbitrary morphisms between objects in the image of $\FF_A$.
 
 \begin{lemma}[Half-braid]\label{lem:general-half-braid}
-    Let $\CC$ be a braided tensor category, and $A$ an Etale algebra object.
+    Let $\CC$ be a braided tensor category, and $A$ an etale algebra object.
     For any $f\in\Hom_{\CC_A}( \FF_A(Y_1) \to \FF_A(Y_2) )$, the following relation holds:
     \begin{equation*}\tag{Half-braid}
         \skein{/skein_figs/arb_hb_top}{0.2} = \skein{/skein_figs/arb_hb_bottom}{0.2}
@@ -119,9 +119,9 @@ and module fusion graphs, so we briefly recall the correspondence
 \begin{equation}\label{eq:G2-affine-quantum}
     \CC(\gg_2,k) \cong \ol{\Rep(U_{q_k}(\gg_2))} 
 \end{equation}
-of \cite{cain_autoequivalences}, where $k$ is the level and $q_k$ is given by
+of \cite{finkelberg1996}, where $k$ is the level and $q_k$ is given by
 \[
-    q = e^{\frac{2\pi i}{3(4+k)}}.
+    q_k = e^{\frac{2\pi i}{3(4+k)}}.
 \]
 
 From \cite[Appendix]{DMNO} we recall the conformal embeddings which are of use to us:
@@ -193,7 +193,7 @@ Up to a rescaling by a factor of $\kappa = \sqrt{[7]-1}$ we use the same skein t
     \end{equation*}
 
     \begin{equation*}\tag{Rotate}\label{eq:Rotate}
-        r^1\left( \skein{/skein_figs/trivalent}{0.1} \right) = \skein{/skein_figs/trivalent}{0.1}
+        \Right^1\left( \skein{/skein_figs/trivalent}{0.1} \right) = \skein{/skein_figs/trivalent}{0.1}
     \end{equation*}
 
     \begin{equation*}\tag{Bigon}\label{eq:Bigon}
@@ -214,8 +214,8 @@ Up to a rescaling by a factor of $\kappa = \sqrt{[7]-1}$ we use the same skein t
 
     \begin{equation*}\tag{Pentagon}\label{eq:Pentagon}
         \skein{/skein_figs/pentagon}{0.1} = 
-        - \sum_{i=0}^4 r^i \left( \skein{/skein_figs/dec_pent_RHS1}{0.1} \right) 
-        - \sum_{i=0}^4 r^i \left( \skein{/skein_figs/dec_pent_RHS2}{0.1} \right)
+        - \sum_{i=0}^4 \Right^i \left( \skein{/skein_figs/dec_pent_RHS1}{0.1} \right) 
+        - \sum_{i=0}^4 \Right^i \left( \skein{/skein_figs/dec_pent_RHS2}{0.1} \right)
     \end{equation*}
 \end{definition}
 
@@ -233,7 +233,7 @@ The {\bf Cauchy completion} of $\CC$ is defined by
     \Ab(\CC) \coloneq \Add(\Idemp(\CC)).
 \]
 
-If we again assume $X$ tensor generates $\CC$, it follows that $\CC \cong \Ab(\PP_{X;\CC})$ \cite[Theorem3.4]{tuba_wenzl}.
+If we again assume $X$ tensor generates $\CC$, it follows that $\CC \cong \Ab(\PP_{X;\CC})$ \cite[Theorem 3.4]{tuba_wenzl}.
 The universal property of $\Ab(\PP_{X;\CC})$ therefore implies 
 that studying $\PP_{X;\CC}$ is sufficient to understand $\CC$. 
 
@@ -342,8 +342,7 @@ This serves two purposes:
     \item Implying unitarity for the skein theories,
 \end{itemize}
 GPAs are an invention of Vaughan Jones \cite{jones_GPA}.
-In this work we have no use for less specialized GPAs, such as the {\it oriented} \cite{Cain_Dan} 
-or {\it multi-color} GPA \cite{}, so we consider only the unoriented case. 
+In this work we have no use for more general GPAs so we consider only the unoriented case. 
 
 \begin{definition}\label{def:GPA}
     Let $\Gamma=(V,E)$ be a finite graph. 
@@ -353,7 +352,7 @@ or {\it multi-color} GPA \cite{}, so we consider only the unoriented case.
     \[
         \Hom_{\GPA(\Gamma)}(m\to n) \coloneqq \C\left\{ (p,q) \mid \substack{\text{$p$ an $m$-path} \\ \text{$q$ and $n$-path}}, \substack{\text{$s(p)=s(q)$}\\ \text{$t(p)=t(q)$}} \right\},
     \]
-    with composition law
+    with composition law\footnote{With the convention $f\circ g \coloneq f(g)$.}
     \[
         (p,q)\circ(p',q')\coloneqq \delta_{q=p'} (p,q'),
     \]
@@ -363,7 +362,7 @@ or {\it multi-color} GPA \cite{}, so we consider only the unoriented case.
         \quad coev = \sum_e \sqrt{ \frac{\lambda_{t(e)}}{\lambda_{s(e)}} } \langle s(e) e\ol{e} \rangle
     \]
     where $\lambda$ is the Frobenius-Perron eigenvector of the adjacency matrix of $\Gamma$.
-    Monoidal product on objects is addition, and for morphisms is defined by 
+    The monoidal product on objects is addition, and for morphisms is defined by 
     \[
         (p,q)\otimes(p',q')\coloneqq \delta_{s(p')=t(p)} (pp',qq').
     \]
