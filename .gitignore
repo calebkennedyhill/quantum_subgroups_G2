@@ -9,5 +9,7 @@
 *.xml
 *.bcf
 *.fdb_latexmk
-*.DS_Store
+.DS_Store
 *.bbl-SAVE-ERROR
+*.json
+*.zip
