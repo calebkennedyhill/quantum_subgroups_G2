@@ -13,3 +13,4 @@
 *.bbl-SAVE-ERROR
 *.json
 *.zip
+figs/.DS_Store
