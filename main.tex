@@ -1,5 +1,48 @@
-\documentclass{amsart}
-\usepackage[utf8]{inputenc}
+
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+%%%%
+
+% MY PACKAGES:
 \usepackage{graphicx} % Required for inserting images
 \usepackage{amssymb}
 \usepackage{verbatim}
@@ -10,51 +53,229 @@
 
 \usepackage{xy}
 \xyoption{all}
-
 \usepackage{tikz}
 
-\allowdisplaybreaks % for breaking up long lists of equations
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
 
-\input{chillmacros}
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+    % \newtheorem{definition}{Definition}
+    % \newtheorem{example}{Example}
+    \newtheorem{proposition}{Proposition}
+    \newtheorem{theorem}{Theorem}
+    \newtheorem{lemma}{Lemma}
+    \newtheorem{corollary}{Corollary}
+    \newtheorem{conjecture}{Conjecture}
+    % \newtheorem{remark}{Remark}
 
-\title{Type $G_2$ Quantum Subgroups from Graph Planar Algebra Embeddings}
-\author{Caleb Kennedy Hill}
-\address{Caleb Kennedy Hill\\
-University of New Hampshire\\
-Durham, 
-New Hampshire}
-\email{caleb.hill@unh.edu}
-\date{}
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+
+
+
+
+% MY MACROS
+\newcommand{\onto}{\twoheadrightarrow}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\unit}{\mathbbm{1}} % depends on package bbm
+
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\DD}{\mathcal{D}}
+\newcommand{\EE}{\mathcal{E}}
+\newcommand{\FF}{\mathcal{F}}
+\newcommand{\GG}{\mathcal{G}}
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\JJ}{\mathcal{J}}
+\newcommand{\KK}{\mathcal{K}}
+\newcommand{\MM}{\mathcal{M}}
+\newcommand{\PP}{\mathcal{P}}
+\newcommand{\VV}{\mathcal{V}}
+\newcommand{\Neg}{\mathcal{N}}
+
+\newcommand{\tr}{tr}
+\newcommand{\id}{id}
+\newcommand{\ldag}{\langle}
+\newcommand{\rdag}{\rangle^\dagger}
+\newcommand{\ol}{\overline}
+
+\newcommand{\dd}{\mathfrak{d}}
+\newcommand{\ee}{\mathfrak{e}}
+\renewcommand{\gg}{\mathfrak{g}}
+\newcommand{\hh}{\mathfrak{h}}
+\renewcommand{\sl}{\mathfrak{sl}}
+\newcommand{\so}{\mathfrak{so}}
+\newcommand{\cat}[1]{\ol{\Rep(U_{#1}(\gg_2))}}
+
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Rep}{Rep}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Alg}{Alg}
+\DeclareMathOperator{\GPA}{GPA}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Vecc}{Vec}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Kar}{Kar}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\coev}{coev}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Ab}{Ab}
+\DeclareMathOperator{\Idemp}{Idemp}
+\DeclareMathOperator{\Add}{Add}
+\DeclareMathOperator{\Right}{Right}
+\DeclareMathOperator{\Dec}{Dec}
+
+
+\renewcommand{\phi}{\varphi}
+\let\oldepsilon\epsilon\let\epsilon\varepsilon\let\smallepsilon\oldepsilon 
+%this makes \epsilon produce the curly epsilon, and \smallepsilon the smaller epsilon
+
+\newcommand{\blank}{\rule{0.2cm}{0.15mm}}
+
+
+% skein diagrams
+\newcommand{\skein}[2]{\raisebox{-.4\height}{ \includegraphics[scale = #2]{figs/#1.png}}}
+
+% \title{Type $G_2$ Quantum Subgroups from Graph Planar Algebra Embeddings}
+% \author{Caleb Kennedy Hill}
+% \address{Caleb Kennedy Hill\\
+% University of New Hampshire\\
+% Durham, 
+% New Hampshire}
+% \email{caleb.hill@unh.edu}
+% \date{}
+
 
 
 \begin{document}
 
 
-\begin{abstract}
+% \begin{abstract}
+%     We give graphical presentations for the two quantum subgroups of type $G_2$.
+%     To do this we use a method of extending a tensor category by embedding the
+%     planar algebra of a $\otimes$-generating object into the graph planar algebra
+%     of this object's fundamental graph.
+%     This allows the use of computational methods to uncover relations 
+%     we would have little hope of arriving at otherwise.
+% \end{abstract}
+
+\title[Article Title]{Type $G_2$ Quantum Subgroups from Graph Planar Algebra Embeddings}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author*[1,2]{\fnm{First} \sur{Author}}\email{iauthor@gmail.com}
+
+\author[2,3]{\fnm{Second} \sur{Author}}\email{iiauthor@gmail.com}
+\equalcont{These authors contributed equally to this work.}
+
+\author[1,2]{\fnm{Third} \sur{Author}}\email{iiiauthor@gmail.com}
+\equalcont{These authors contributed equally to this work.}
+
+\affil*[1]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{100190}, \state{State}, \country{Country}}}
+
+\affil[2]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{10587}, \state{State}, \country{Country}}}
+
+\affil[3]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{610101}, \state{State}, \country{Country}}}
+
+%%==================================%%
+%% Sample for unstructured abstract %%
+%%==================================%%
+
+\abstract{
     We give graphical presentations for the two quantum subgroups of type $G_2$.
     To do this we use a method of extending a tensor category by embedding the
     planar algebra of a $\otimes$-generating object into the graph planar algebra
     of this object's fundamental graph.
     This allows the use of computational methods to uncover relations 
     we would have little hope of arriving at otherwise.
-\end{abstract}
+}
+
+\keywords{keyword1, Keyword2, Keyword3, Keyword4}
 \maketitle
 
+\section{Test Section}
+Test output.
+% \input{intro.tex}
 
-% \tableofcontents
+% \input{prelim}
 
-\input{intro.tex}
+% \input{skein-theory}
 
-\input{prelim}
+% \input{gpa-embeddings}
 
-\input{skein-theory}
+% \input{equivalences}
 
-\input{gpa-embeddings}
+% \pagebreak
 
-\input{equivalences}
+% \printbibliography
 
-\pagebreak
 
-\printbibliography
+
+
+\begin{appendices}
+
+\section{Section title of first appendix}\label{secA1}
+
+An appendix contains supplementary information that is not an essential part of the text itself 
+but which may be helpful in providing a more comprehensive understanding of 
+the research problem or it is information that is too cumbersome to be included in the body of the paper.
+
+%%=============================================%%
+%% For submissions to Nature Portfolio Journals %%
+%% please use the heading ``Extended Data''.   %%
+%%=============================================%%
+
+%%=============================================================%%
+%% Sample for another appendix section			       %%
+%%=============================================================%%
+
+%% \section{Example of another appendix section}\label{secA2}%
+%% Appendices may be used for helpful, supporting or essential material that would otherwise 
+%% clutter, break up or be distracting to the text. Appendices can consist of sections, figures, 
+%% tables and equations etc.
+
+\end{appendices}
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+
+\bibliography{sn-bibliography}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
 
 \end{document}
