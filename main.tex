@@ -183,7 +183,7 @@
 %     we would have little hope of arriving at otherwise.
 % \end{abstract}
 
-\title[Article Title]{Type $G_2$ Quantum Subgroups from Graph Planar Algebra Embeddings}
+\title{Type $G_2$ Quantum Subgroups from Graph Planar Algebra Embeddings}
 
 %%=============================================================%%
 %% GivenName	-> \fnm{Joergen W.}
@@ -195,7 +195,6 @@
 %%=============================================================%%
 
 \author{\fnm{Caleb Kennedy} \sur{Hill}}\email{caleb.hill@unh.edu}
-
 \affil{
     \orgdiv{Department of Mathematics and Statistics}, 
     \orgname{University of New Hampshire}, 
@@ -1499,23 +1498,28 @@ the conjugate pairs appear where one would expect them.
 
 
 \begin{table}
-    \centering
-    \begin{tabular}{|cc|} \hline
-        $1\to\blank\to1$ & $4\to\blank\to4$ \\ \hline\hline
+    \caption{The size 4 blocks of nonzero projection coordinates.}
+    \label{tab:lvl-4-proj-coefs-1}
+    \begin{tabular}{c|c} 
+        \toprule
+        $1\to\blank\to1$ & $4\to\blank\to4$ \\ 
+        \midrule
         $2.22$  & $2.22$ \\
         $-2.22$ & $-2.22$ \\
         $-2.22$ & $-2.22$ \\
-        $2.22$  & $2.22$ \\ \hline
+        $2.22$  & $2.22$ \\
+        \botrule
     \end{tabular}
-    \caption{The size 4 blocks of nonzero projection coordinates.}
-    \label{tab:lvl-4-proj-coefs-1}
 \end{table}
 
 
-\begin{table}
-    \noindent\makebox[\textwidth]{
-    \begin{tabular}{|cccc|} \hline
-        $2\to\blank\to6$                 & $3\to\blank\to5$         & $5\to\blank\to3$           & $6\to\blank\to2$ \\ \hline\hline
+\begin{sidewaystable}
+    \caption{The size 25 blocks of nonzero projection coordinates.}
+    \label{tab:lvl-4-proj-coefs-2}
+    \begin{tabular}{c|c|c|c}
+        \toprule
+        $2\to\blank\to6$                 & $3\to\blank\to5$         & $5\to\blank\to3$           & $6\to\blank\to2$ \\ 
+        \midrule
         $0.44949$                        & $1$                      & $1$                        & $0.44949$ \\
         $0.474073 - 0.474073 i$          & $0.825482 + 0.564429 i$  & $0.825482 - 0.564429 i$    & $0.474073 + 0.474073 i$ \\
         $-0.123758 - 0.658919 i$         & $0.123758 + 0.658919 i$  & $0.123758 - 0.658919 i$    & $-0.123758 + 0.658919 i$ \\
@@ -1540,12 +1544,11 @@ the conjugate pairs appear where one would expect them.
         $-i$                             & $0.564429 + 0.825482 i$  & $0.564429 - 0.825482 i$    & $i$ \\                 
         $-0.825482 - 0.564429 i$         & $-0.123758 + 0.658919 i$ & $-0.123758 - 0.658919 i$   & $-0.825482 + 0.564429 i$ \\                 
         $0.564429 + 0.825482 i$          & $-0.825482 + 0.564429 i$ & $-0.825482 - 0.564429 i$   & $0.564429 - 0.825482 i$ \\                 
-        $1$                              & $1$                      & $1$                        & $1$ \\ \hline                 
+        $1$                              & $1$                      & $1$                        & $1$ \\
+        \botrule                 
     \end{tabular}
-    }
-    \caption{The size 25 blocks of nonzero projection coordinates.}
-    \label{tab:lvl-4-proj-coefs-2}
-\end{table}
+    
+\end{sidewaystable}
 
 
 
@@ -1723,17 +1726,19 @@ One may use the symmetry $2 \xleftrightarrow{} 4$ to find the rest of the coordi
 
 
 \begin{table}
-    \centering
-    \begin{tabular}{|cc|c|} \hline
-        Vertex Path & Conditions & Coefficient \\ \hline\hline
-        $(i,i,i)$ &  $i\neq1$ & 1.08393 \\[10pt]  \hline
-        $(i,j,k)$ &  $\{i,j,k\}=\{2,3,4\}$   & 0.619371 \\[10pt] \hline
-        $(i,1,k)$ &  $i,k\neq 1$, $i\neq k$ & 1.69414 \\[10pt] \hline
-        $(i,1,i)$ &  $i\neq 1$   & 0.861006 \\[10pt] \hline
-        $(i,i,1)$ or $(1,i,i)$ &  $i\neq1$   & 0.967919 \\[10pt] \hline
-    \end{tabular}
     \caption{Level 3 trivalent embedding coefficients.}
     \label{tab:lvl-3-triv-coefs}
+    \begin{tabular}{ll|l}
+        \toprule
+        Vertex Path & Conditions & Coefficient \\ 
+        \midrule
+        $(i,i,i)$ &  $i\neq1$ & $1.08393$ \\
+        $(i,j,k)$ &  $\{i,j,k\}=\{2,3,4\}$   & $0.619371$ \\
+        $(i,1,k)$ &  $i,k\neq 1$, $i\neq k$ & $1.69414$ \\ 
+        $(i,1,i)$ &  $i\neq 1$   & $0.861006$ \\ 
+        $(i,i,1)$ or $(1,i,i)$ &  $i\neq1$   & $0.967919$ \\ 
+        \botrule
+    \end{tabular}
 \end{table}
 
 
@@ -1769,10 +1774,13 @@ imply nontriviality and unitarity of $\ol{\DD_3}$.
 
 
 
-\begin{table}
-    \noindent\makebox[\textwidth]{
-    \begin{tabular}{|cccc|} \hline
-        $1\to\blank\to1$                    & $2\to\blank\to4$                  & $3\to\blank\to2$               & $4\to\blank\to3$ \\ \hline\hline
+\begin{sidewaystable}
+    \caption{Level 3 projection embedding coordinates.}
+    \label{tab:lvl-3-proj-coefs}
+    \begin{tabular}{c|c|c|c}
+        \toprule
+        $1\to\blank\to1$                    & $2\to\blank\to4$                  & $3\to\blank\to2$               & $4\to\blank\to3$ \\ 
+        \midrule
         $1.26376$              & $0.791288$                & $0.791288 $              & $0.791288$ \\
         $-0.631881-1.09445 i$   & $0.567622 - 0.684904 i$   & $0.876955 + 0.149123 i$  & $0.674406 + 0.580055 i$ \\
         $-0.631881+1.09445 i$   & $0.674406 + 0.580055 i$   & $0.567622 - 0.684904 i$  & $0.876955 + 0.149123 i$ \\
@@ -1788,12 +1796,10 @@ imply nontriviality and unitarity of $\ol{\DD_3}$.
                               & $-0.876955 + 0.149123 i$  & $-0.674406 + 0.580055 i$ & $0.567622 + 0.684904 i$ \\
                               & $-0.5 + 0.866025 i$       & $-0.856735 + 0.515757 i$ & $-0.0182917 + 0.999833 i$ \\
                               & $-0.856735 - 0.515757 i$  & $0.0182917 + 0.999833 i$ & $0.5 + 0.866025 i$ \\
-                              & $1$                       & $1$                      & $1$ \\ \hline
+                              & $1$                       & $1$                      & $1$ \\
+    \botrule
     \end{tabular}
-    }
-    \caption{Level 3 projection embedding coefficients.}
-    \label{tab:lvl-3-proj-coefs}
-\end{table}
+\end{sidewaystable}
 
 
 
