@@ -158,7 +158,7 @@
 
 
 % skein diagrams
-\newcommand{\skein}[2]{\raisebox{-.4\height}{ \includegraphics[scale = #2]{figs/#1.png}}}
+\newcommand{\skein}[2]{\raisebox{-.4\height}{ \includegraphics[scale = #2]{./#1.png}}}
 
 % \title{Type $G_2$ Quantum Subgroups from Graph Planar Algebra Embeddings}
 % \author{Caleb Kennedy Hill}
@@ -247,7 +247,7 @@ Through the free functor we can view our GPA embedding as a GPA embedding for a 
 object's planar algebra in $\ol{\Rep(U_q(\gg_2))}_A$.
 Diagrammatically, this gives us a black-strand and a trivalent vertex:
 \[
-    \skein{/skein_figs/trivalent}{0.14}
+    \skein{trivalent}{0.14}
 \]
 with a known skein theory.
 We then search inside the GPA embedding for new morphisms.
@@ -255,7 +255,7 @@ According to \cite{DMNO} there ought to be a projection onto a $\Z_k$-like simpl
 so this is what we search for inside the GPA.
 We view this new morphism as an I with an oriented red vertical strand:
 \[
-    \skein{/skein_figs/dec_tet_5}{0.15}       
+    \skein{dec_tet_5}{0.15}       
 \]
 In the case of $\GG_2(q)$, the properties of this new morphism were unknown beyond a few basics deriving from, e.g.,
 the fact that is is a projection onto a simple object contained in the tensor square of the $\otimes$-generating object.
@@ -278,23 +278,23 @@ such a diagram is called {\bf decorated}.
     For a diagram $\EE$ the notation $\Right^i(\EE)$ means an $i$-click right rotation. 
     For instance, 
     \[
-    \Right^1\left( \skein{/skein_figs/dec_tet_4}{0.1} \right) = \skein{/skein_figs/dec_tet_3}{0.1} 
+    \Right^1\left( \skein{dec_tet_4}{0.1} \right) = \skein{dec_tet_3}{0.1} 
     \quad\text{and}\quad 
-    \Right^2\left( \skein{/skein_figs/dec_tet_4}{0.1} \right) = \skein{/skein_figs/dec_tet_4}{0.1}.
+    \Right^2\left( \skein{dec_tet_4}{0.1} \right) = \skein{dec_tet_4}{0.1}.
     \] 
 
     Suppose the diagram $\EE$ has $m$ boundary points. 
     We define $\Dec_i(\EE)$ to be the $i$-th external single clockwise decoration of $\EE$. 
     For example,
     \[
-        \Dec_1\left(\skein{/skein_figs/trivalent}{0.1}\right) = \skein{/skein_figs/triv_rightDown}{0.1},
+        \Dec_1\left(\skein{trivalent}{0.1}\right) = \skein{triv_rightDown}{0.1},
     \quad
     \text{and} 
     \quad
-        \sum_{i=1}^{3} i\Dec_i\left(\skein{/skein_figs/trivalent}{0.1}\right) 
-        = \skein{/skein_figs/triv_rightDown}{0.1} 
-        +2\skein{/skein_figs/triv_bottomLeft}{0.1} 
-        +3\skein{/skein_figs/triv_leftUp}{0.1}
+        \sum_{i=1}^{3} i\Dec_i\left(\skein{trivalent}{0.1}\right) 
+        = \skein{triv_rightDown}{0.1} 
+        +2\skein{triv_bottomLeft}{0.1} 
+        +3\skein{triv_leftUp}{0.1}
     \]
     We adopt the convention that $\Dec_0 (\EE) = \EE$.
 \end{definition}
@@ -304,70 +304,70 @@ Here we define the class of categories we will be working with.
 Later we will show that, with a relatively tame assumption on the underlying skein theory, 
 categories in this class are evaluable in general.
 \begin{definition}\label{def:zn-ext}
-    Let $\CC = \left\langle \skein{/skein_figs/trivalent}{0.1} \right\rangle$ 
+    Let $\CC = \left\langle \skein{trivalent}{0.1} \right\rangle$ 
     be a trivalent category. 
     Call $\DD$ a {\bf $\Z_n$-like extension} (or {\bf cyclic} when $n$ is understood) of $\CC$ if we have
-    $\DD = \left\langle \skein{/skein_figs/trivalent}{0.1}, \skein{/skein_figs/dec_tet_5}{0.1} \right\rangle$,
+    $\DD = \left\langle \skein{trivalent}{0.1}, \skein{dec_tet_5}{0.1} \right\rangle$,
     enjoying the following relations % \footnote{Conditions from \cite{czenky}.}:
     \begin{equation*}\tag{Recouple}
-        \skein{/skein_figs/recouple_LHS}{0.1} 
-        = \skein{/skein_figs/recouple_RHS}{0.1}
+        \skein{recouple_LHS}{0.1} 
+        = \skein{recouple_RHS}{0.1}
     \end{equation*}
 
     \begin{equation*}\tag{Reverse}
-        \skein{/skein_figs/down_n-1}{0.1} 
-        = \skein{/skein_figs/dec_tet_5}{0.15}
+        \skein{down_n-1}{0.1} 
+        = \skein{dec_tet_5}{0.15}
     \end{equation*}
 
     \begin{equation*}\tag{Schur 0}
-        \skein{/skein_figs/schur_0_1}{0.1} = 0 \quad 
-        \skein{/skein_figs/schur_0_2}{0.1} = 0 \quad \cdots \quad 
-        \underbrace{ \skein{/skein_figs/schur_0_n-1}{0.11} }_{\text{$n-1$}} = 0
+        \skein{schur_0_1}{0.1} = 0 \quad 
+        \skein{schur_0_2}{0.1} = 0 \quad \cdots \quad 
+        \underbrace{ \skein{schur_0_n-1}{0.11} }_{\text{$n-1$}} = 0
     \end{equation*}
 
     \begin{equation*}\tag{Schur 1}
-        \skein{/skein_figs/schur_1_1}{0.1} = 0 \quad 
-        \skein{/skein_figs/schur_1_2}{0.1} = 0 \quad \cdots \quad 
-        \underbrace{ \skein{/skein_figs/schur_1_n-1}{0.11} }_{\text{$n-1$}} = 0
+        \skein{schur_1_1}{0.1} = 0 \quad 
+        \skein{schur_1_2}{0.1} = 0 \quad \cdots \quad 
+        \underbrace{ \skein{schur_1_n-1}{0.11} }_{\text{$n-1$}} = 0
     \end{equation*}
 
     \begin{equation*}\tag{Swap}
-        \skein{/skein_figs/swap_LHS}{0.15} 
-        = \omega \skein{/skein_figs/swap_RHS}{0.15}
+        \skein{swap_LHS}{0.15} 
+        = \omega \skein{swap_RHS}{0.15}
     \end{equation*}
 
     \begin{equation*}\tag{decStick}
-        \skein{/skein_figs/stick_w_Pg}{0.25} 
-        = \skein{/skein_figs/stick}{0.1}
+        \skein{stick_w_Pg}{0.25} 
+        = \skein{stick}{0.1}
     \end{equation*} 
 
     \begin{equation*}\tag{decBigon}
-        \skein{/skein_figs/g_bigon2}{0.1} = b \skein{/skein_figs/stick}{0.15}
+        \skein{g_bigon2}{0.1} = b \skein{stick}{0.15}
     \end{equation*}
 
     \begin{equation*}\tag{Change of Basis}
-        \skein{/skein_figs/triv_leftUp}{0.1} 
-        = \sum_{i=0}^{n-1} r_i \skein{/skein_figs/triv_rightUp_i}{0.1}
+        \skein{triv_leftUp}{0.1} 
+        = \sum_{i=0}^{n-1} r_i \skein{triv_rightUp_i}{0.1}
     \end{equation*}
 
     \begin{equation*}\tag{decTrigon}
-        \skein{/skein_figs/dec_trigon_LHS}{0.1} 
-        = \sum_{i=0}^{n-1} t_i \skein{/skein_figs/triv_rightUp_i}{0.1}
+        \skein{dec_trigon_LHS}{0.1} 
+        = \sum_{i=0}^{n-1} t_i \skein{triv_rightUp_i}{0.1}
     \end{equation*}\label{eq:decTrigon}
  
     \begin{equation*}\tag{decTetragon}
-         \skein{/skein_figs/dec_tet_LHS}{0.1} 
-         = \sum_{i=0}^4 \sum_{j=0}^3 u_{i,j} \Dec_i\left( \Right^j\left( \skein{/skein_figs/dec_tet_1}{0.1} \right) \right)
-         + \sum_{i=0}^4 \sum_{j=0}^3 v_{i,j} \Dec_i\left( \Right^j\left( \skein{/skein_figs/dec_tet_4}{0.1} \right) \right)
+         \skein{dec_tet_LHS}{0.1} 
+         = \sum_{i=0}^4 \sum_{j=0}^3 u_{i,j} \Dec_i\left( \Right^j\left( \skein{dec_tet_1}{0.1} \right) \right)
+         + \sum_{i=0}^4 \sum_{j=0}^3 v_{i,j} \Dec_i\left( \Right^j\left( \skein{dec_tet_4}{0.1} \right) \right)
     \end{equation*}
 
      \begin{equation*}\tag{decPentagon}
-        \skein{/skein_figs/dec_pent_LHS}{0.1} 
-        = \sum_{i=0}^5 \sum_{j=0}^4 w_{i,j} \Dec_i\left( \Right^j\left( \skein{/skein_figs/dec_pent_RHS1}{0.1} \right) \right) 
-        + \sum_{i=0}^5 \sum_{j=0}^4 x_{i,j} \Dec_i\left( \Right^j\left( \skein{/skein_figs/dec_pent_RHS2}{0.1} \right) \right)
+        \skein{dec_pent_LHS}{0.1} 
+        = \sum_{i=0}^5 \sum_{j=0}^4 w_{i,j} \Dec_i\left( \Right^j\left( \skein{dec_pent_RHS1}{0.1} \right) \right) 
+        + \sum_{i=0}^5 \sum_{j=0}^4 x_{i,j} \Dec_i\left( \Right^j\left( \skein{dec_pent_RHS2}{0.1} \right) \right)
     \end{equation*}
     for $c, \omega, b, r_i, t_i, u_{i,j}, v_{i,j}, w_{i,j}, x_{i,j} \in \C$.
-    We additionally enforce the condition that the diagrams $\skein{/skein_figs/triv_rightUp_i}{0.075}$ 
+    We additionally enforce the condition that the diagrams $\skein{triv_rightUp_i}{0.075}$ 
     for $i=0,\dots,n-1$ span the $2\to1$ hom-space, where we adopt the convention that 
     an oriented strand labelled with $i$ refers to the presence of $i$
     parallel oriented strands.
@@ -388,30 +388,30 @@ categories in this class are evaluable in general.
     } 
     
     \begin{equation*}
-        \skein{/skein_figs/swap_LHS}{0.1} = - \skein{/skein_figs/swap_RHS}{0.1}, \qquad
-        \skein{/skein_figs/g_bigon2}{0.1} = (q_4+1+q_4^{-1}) \skein{/skein_figs/stick}{0.1}
+        \skein{swap_LHS}{0.1} = - \skein{swap_RHS}{0.1}, \qquad
+        \skein{g_bigon2}{0.1} = (q_4+1+q_4^{-1}) \skein{stick}{0.1}
     \end{equation*}
 
     \begin{equation*}
-        \skein{/skein_figs/triv_leftUp}{0.1} =  
-        q_4^{-4} \skein{/skein_figs/trivalent}{0.1} 
-        + q_4^{16} \skein{/skein_figs/triv_rightUp}{0.1}
+        \skein{triv_leftUp}{0.1} =  
+        q_4^{-4} \skein{trivalent}{0.1} 
+        + q_4^{16} \skein{triv_rightUp}{0.1}
     \end{equation*}
 
 
     \begin{equation*}
-        \skein{/skein_figs/dec_trigon_LHS}{0.1} = 
-        -\skein{/skein_figs/trivalent}{0.1} 
-        -\skein{/skein_figs/triv_rightUp}{0.1}
+        \skein{dec_trigon_LHS}{0.1} = 
+        -\skein{trivalent}{0.1} 
+        -\skein{triv_rightUp}{0.1}
     \end{equation*}
 
 
     \begin{align*}
-         \skein{/skein_figs/dec_tet_LHS}{0.12} & = q^2 \skein{/skein_figs/dec_tet_1}{0.1} + q_4^2 \skein{/skein_figs/dec_tet_2}{0.1} 
-            + \frac{q_4^{17}}{q-q^{-1}} \skein{/skein_figs/dec_tet_3}{0.1} + q_4^2 \skein{/skein_figs/dec_tet_4}{0.1} \\
-        & + \frac{1+[3]_{q_4}}{q_4^4} \skein{/skein_figs/dec_tet_5}{0.1} + \frac{[2]_{q_4}}{q_4^{13}} \skein{/skein_figs/dec_tet_6}{0.1}
-            + q_4^{-14} \skein{/skein_figs/dec_tet_8}{0.1} + \frac{[2]_{q_4}}{q_4^{13}} \skein{/skein_figs/dec_tet_9}{0.1}
-            + (-1) \skein{/skein_figs/dec_tet_10}{0.1}
+         \skein{dec_tet_LHS}{0.12} & = q^2 \skein{dec_tet_1}{0.1} + q_4^2 \skein{dec_tet_2}{0.1} 
+            + \frac{q_4^{17}}{q-q^{-1}} \skein{dec_tet_3}{0.1} + q_4^2 \skein{dec_tet_4}{0.1} \\
+        & + \frac{1+[3]_{q_4}}{q_4^4} \skein{dec_tet_5}{0.1} + \frac{[2]_{q_4}}{q_4^{13}} \skein{dec_tet_6}{0.1}
+            + q_4^{-14} \skein{dec_tet_8}{0.1} + \frac{[2]_{q_4}}{q_4^{13}} \skein{dec_tet_9}{0.1}
+            + (-1) \skein{dec_tet_10}{0.1}
     \end{align*}
 
 
@@ -581,7 +581,7 @@ however, there is a half-braid for arbitrary morphisms between objects in the im
     Let $\CC$ be a braided tensor category, and $A$ an etale algebra object.
     For any $f\in\Hom_{\CC_A}( \FF_A(Y_1) \to \FF_A(Y_2) )$, the following relation holds:
     \begin{equation*}\tag{Half-braid}
-        \skein{/skein_figs/arb_hb_top}{0.2} = \skein{/skein_figs/arb_hb_bottom}{0.2}
+        \skein{arb_hb_top}{0.2} = \skein{arb_hb_bottom}{0.2}
     \end{equation*}
 \end{lemma}
 
@@ -637,7 +637,7 @@ we see that at both levels $k=3,4$ we have
     projecting onto these grouplike objects.
     As the $g_i$ are simple, we have $P_{g_k}^\dagger = P_{g_k}$.
 
-    The behavior of the $P_{g_k}$ will be captured by $\skein{/skein_figs/dec_tet_5}{0.1}$ in $\DD_k$.
+    The behavior of the $P_{g_k}$ will be captured by $\skein{dec_tet_5}{0.1}$ in $\DD_k$.
     As we will see, describing the interaction of $P_{g_k}$ with the image of the free functor 
     will be sufficient to fully describe $\ol{\Rep(U_{q_k}(\gg_2))}_{A_k}$.
 \end{remark}
@@ -665,39 +665,39 @@ Up to a rescaling by a factor of $\kappa = \sqrt{[7]-1}$ we use the same skein t
 (note the sign error in the \ref{eq:Pentagon} relation of \cite{Kuperberg}). 
 \begin{definition}
     For $q$ a root of unity, the $\GG_2(q)$ skein theory is defined to be that generated by an 
-    unoriented trivalent vertex $\skein{/skein_figs/trivalent}{0.05}$ satisfying the relations
+    unoriented trivalent vertex $\skein{trivalent}{0.05}$ satisfying the relations
     \begin{equation*}\tag{Loop}
-        \skein{/skein_figs/loop}{0.1} = \delta = q^{10} + q^{8} + q^{2} + 1 + q^{-2} + q^{-8} + q^{-10}
+        \skein{loop}{0.1} = \delta = q^{10} + q^{8} + q^{2} + 1 + q^{-2} + q^{-8} + q^{-10}
     \end{equation*}
 
     \begin{equation*}\tag{Lollipop}\label{eq:Lolli}
-        \skein{/skein_figs/lollipop}{0.1} = 0  
+        \skein{lollipop}{0.1} = 0  
     \end{equation*}
 
     \begin{equation*}\tag{Rotate}\label{eq:Rotate}
-        \Right^1\left( \skein{/skein_figs/trivalent}{0.1} \right) = \skein{/skein_figs/trivalent}{0.1}
+        \Right^1\left( \skein{trivalent}{0.1} \right) = \skein{trivalent}{0.1}
     \end{equation*}
 
     \begin{equation*}\tag{Bigon}\label{eq:Bigon}
-        \skein{/skein_figs/bigon}{0.1} = \kappa^2 \skein{/skein_figs/stick}{0.1}
+        \skein{bigon}{0.1} = \kappa^2 \skein{stick}{0.1}
     \end{equation*}
 
     \begin{equation*}\tag{Trigon}\label{eq:Trigon}
-        \skein{/skein_figs/trigon_LHS}{0.1} = -(q^4 +1+ q^{-4}) \skein{/skein_figs/trivalent}{0.1}
+        \skein{trigon_LHS}{0.1} = -(q^4 +1+ q^{-4}) \skein{trivalent}{0.1}
     \end{equation*}
 
     \begin{equation*}\tag{Tetragon}\label{eq:Tetragon}
-        \skein{/skein_figs/tet_LHS}{0.1} 
-        = (q^2 + q^{-2}) \left( \skein{/skein_figs/dec_tet_1}{0.1} 
-        + \skein{/skein_figs/dec_tet_2}{0.1} \right) 
-        + (q^2 +1+ q^{-2}) \left( \skein{/skein_figs/dec_tet_3}{0.1} 
-        + \skein{/skein_figs/dec_tet_4}{0.1} \right)
+        \skein{tet_LHS}{0.1} 
+        = (q^2 + q^{-2}) \left( \skein{dec_tet_1}{0.1} 
+        + \skein{dec_tet_2}{0.1} \right) 
+        + (q^2 +1+ q^{-2}) \left( \skein{dec_tet_3}{0.1} 
+        + \skein{dec_tet_4}{0.1} \right)
     \end{equation*}
 
     \begin{equation*}\tag{Pentagon}\label{eq:Pentagon}
-        \skein{/skein_figs/pentagon}{0.1} = 
-        - \sum_{i=0}^4 \Right^i \left( \skein{/skein_figs/dec_pent_RHS1}{0.1} \right) 
-        - \sum_{i=0}^4 \Right^i \left( \skein{/skein_figs/dec_pent_RHS2}{0.1} \right)
+        \skein{pentagon}{0.1} = 
+        - \sum_{i=0}^4 \Right^i \left( \skein{dec_pent_RHS1}{0.1} \right) 
+        - \sum_{i=0}^4 \Right^i \left( \skein{dec_pent_RHS2}{0.1} \right)
     \end{equation*}
 \end{definition}
 
@@ -835,13 +835,13 @@ The defining relations for a $\Z_n$-like extension then pop the singly-decorated
     (2) (Split) follows from (Recouple) and ($\Z_n$).
 
     \begin{equation*}\tag{$\Z_n$}
-        \underbrace{ \skein{/skein_figs/n_g_strands}{0.08} }_{\text{$n$}} 
-        = \skein{/skein_figs/dec_tet_3}{0.2}
+        \underbrace{ \skein{n_g_strands}{0.08} }_{\text{$n$}} 
+        = \skein{dec_tet_3}{0.2}
     \end{equation*}
 
     \begin{equation*}\tag{Split}
-        \underbrace{ \skein{/skein_figs/split_LHS}{0.125} }_{\text{$n$}} 
-        = \frac{1}{\delta^2} \underbrace{ \skein{/skein_figs/split_RHS}{0.085} }_{\text{$n$}}
+        \underbrace{ \skein{split_LHS}{0.125} }_{\text{$n$}} 
+        = \frac{1}{\delta^2} \underbrace{ \skein{split_RHS}{0.085} }_{\text{$n$}}
     \end{equation*}
 
 \end{lemma}
@@ -872,8 +872,8 @@ The defining relations for a $\Z_n$-like extension then pop the singly-decorated
 \begin{lemma}
     In a $\Z_n$-like extension, there exist $n$ scalars $s_i$ such that the following relation holds:
     \begin{equation*}\tag{Slide}
-        \skein{/skein_figs/slide_LHS}{0.1} 
-        = \sum_{i=0}^{n-1} s_i \skein{/skein_figs/slide_RHS2}{0.1}^i
+        \skein{slide_LHS}{0.1} 
+        = \sum_{i=0}^{n-1} s_i \skein{slide_RHS2}{0.1}^i
     \end{equation*}
 \end{lemma}
 \begin{proof}
@@ -901,19 +901,19 @@ We use this fact in the proof of the following lemma.
 
     Now, a maximally-decorated trigon is of the form:
     \[
-        \skein{/skein_figs/dec_3gon1}{0.15}
+        \skein{dec_3gon1}{0.15}
     \]
     with any orientation on the red strands. We apply the relations (Swap) and (Slide) on the internal red strands to obtain a combination of diagrams of the form
     \[
-        \skein{/skein_figs/dec_3gon2}{0.15}
+        \skein{dec_3gon2}{0.15}
     \]
     Now apply (Change of Basis) to reduce to a combination of diagrams of the form
     \[
-        \skein{/skein_figs/dec_3gon3}{0.15}
+        \skein{dec_3gon3}{0.15}
     \]
     By another application of (Slide) and (Change of Basis) we arrive at a diagram of the form 
     \[
-        \skein{/skein_figs/dec_3gon4}{0.15}
+        \skein{dec_3gon4}{0.15}
     \]
     During this last step, we pick up red strands between the black ``spokes''; one may happily move these out of the diagram.
 \end{proof}
@@ -1159,7 +1159,7 @@ These graphs are shown in Figure~\ref{fig:new-graphs}.
 
 One may give a monoidal functor $F:\GG_2(q) \to \GPA(\Gamma)$ by specifying the image of the morphism 
 \[
-F\left( \skein{skein_figs/trivalent}{0.08} \right) \in \Hom_{\GPA(\Gamma)}(2\to1).
+F\left( \skein{trivalent}{0.08} \right) \in \Hom_{\GPA(\Gamma)}(2\to1).
 \]
 This amounts to giving a list of $M\coloneqq\tr(\Gamma^2\cdot\Gamma)$ complex numbers\footnote{
     We freely switch between using $\Gamma$ to mean the graph itself and the graph's adjacency matrix. }, 
@@ -1174,7 +1174,7 @@ of polynomials in the $a_i$. \footnote{
 Once we have the image of the trivalent vertex in hand, we have found an embedding of the planar algebra it generates. 
 We can then follow a similar approach to solve for the image
 \[
-F\left( \skein{skein_figs/dec_tet_5}{0.08} \right) \in \Hom_{\GPA(\Gamma)}(2\to2)
+F\left( \skein{dec_tet_5}{0.08} \right) \in \Hom_{\GPA(\Gamma)}(2\to2)
 \]
 to extend the GPA embedding of $\GG_2(q)$.
 Let us discuss our examples.
@@ -1216,7 +1216,7 @@ below the theorem.
     for $\Hom_{\GPA(\Gamma_4)}(2\to1)$; at level 4 we have $M=88$. 
     Then it must be that 
     \[
-        F_4 \left( \skein{skein_figs/trivalent}{0.08} \right) = a_1(p_1,q_1)+\cdots+ a_M(p_M,q_M)
+        F_4 \left( \skein{trivalent}{0.08} \right) = a_1(p_1,q_1)+\cdots+ a_M(p_M,q_M)
     \]
     for some $a_1,\dots,a_M \in \C$.
     The \ref{eq:Bigon} relation, when sent through $F$, becomes the system
@@ -1280,7 +1280,7 @@ For instance,
 \[
     a_{10} = \frac{1}{2} \left(\sqrt{1+\sqrt{6-3 \sqrt{3}}}+\sqrt{\sqrt{2+\sqrt{3}}-1}\right).
 \]
-Up to sign, the coordinates of $F_4 \left( \skein{skein_figs/trivalent}{0.08} \right)$ 
+Up to sign, the coordinates of $F_4 \left( \skein{trivalent}{0.08} \right)$ 
 take on the following values:
 \begin{align*}
     \alpha_1 & = \sqrt{\frac{1}{2} \left(1+2 \sqrt{2}+\sqrt{3}+\sqrt{6}\right)} \\
@@ -1293,7 +1293,7 @@ take on the following values:
     \alpha_8 & = \frac{1}{2} \left(\sqrt{1+\sqrt{6-3 \sqrt{3}}}-\sqrt{\sqrt{2+\sqrt{3}}-1}\right) \\
     \alpha_9 & = \frac{1}{2} \left(\sqrt{1+\sqrt{6-3 \sqrt{3}}}+\sqrt{\sqrt{2+\sqrt{3}}-1}\right). \\
 \end{align*}
-These coordinates of $F_4 \left( \skein{skein_figs/trivalent}{0.08} \right)$ give us a definition of $F_4$.
+These coordinates of $F_4 \left( \skein{trivalent}{0.08} \right)$ give us a definition of $F_4$.
 
 
 
@@ -1301,7 +1301,7 @@ These coordinates of $F_4 \left( \skein{skein_figs/trivalent}{0.08} \right)$ giv
 
 
 \subsection{Extension of level 4}\label{subsec:extend-level-4}
-With our embedding of $\GG_2(q_4)$, i.e. the coordinates of $F_4 \left( \skein{skein_figs/trivalent}{0.08} \right)$, in hand, 
+With our embedding of $\GG_2(q_4)$, i.e. the coordinates of $F_4 \left( \skein{trivalent}{0.08} \right)$, in hand, 
 we now know where to find a subcategory of $\GPA(\Gamma_4)$ isomorphic to $\ol{\GG_2(q_4)}$.
 In practice, we are relying on the fact that the free functor gives an embedding 
 \[
@@ -1317,33 +1317,33 @@ which follows relations analogous to (Recouple), (Schur 0, 1), (Swap), and (decS
 Now, to enlarge our copy of $\ol{\GG_2(q_4)}$ to a $\Z_2$-like extension, we begin by finding 
 an element of $\Hom_{\GPA(\Gamma_4)}(2\to 2)$ which satisfies the relations
 (Recouple), (Schur 0, 1), (Swap), and (decStick); 
-the role will be played by $\skein{skein_figs/dec_tet_5}{0.08}$.
+the role will be played by $\skein{dec_tet_5}{0.08}$.
 
 To this end, we take an approach similar to the one of the previous subsection.
 We may identify $\GG_2(q_4)$ with the trivalent subcategory of $\DD_4$,
 and now view $F_4$ as a functor out of this subcategory.
 To finish the definition of $F_4$, we must find the image
 \[
-    F_4\left( \skein{skein_figs/dec_tet_5}{0.08} \right) \in \Hom_{\GPA(\Gamma_4)}(2\to2)
+    F_4\left( \skein{dec_tet_5}{0.08} \right) \in \Hom_{\GPA(\Gamma_4)}(2\to2)
 \]
 satisfying (Recouple), (Schur 0, 1), (Swap), and (decStick).
-We follow a process similar to solving for the image $F_4\left( \skein{skein_figs/trivalent}{0.08} \right)$.
+We follow a process similar to solving for the image $F_4\left( \skein{trivalent}{0.08} \right)$.
 That is, we assume that for some $b_1,\dots,b_N \in \C$ where $N \coloneq \tr(\Gamma_4^2 \cdot \Gamma_4^2) =400$ 
 at level 4, we have
 \[
-    F_4\left( \skein{skein_figs/dec_tet_5}{0.08} \right) = \sum_{i=1}^N b_i (p'_i,q'_i).
+    F_4\left( \skein{dec_tet_5}{0.08} \right) = \sum_{i=1}^N b_i (p'_i,q'_i).
 \]
 We may push the relations (Schur 0), (Schur 1), and (decStick) through $F_4$, and obtain 
 a set of linear equations in the $b_i$.
 We additionally obtain a large linear system which follows from Lemma~\ref{lem:general-half-braid}.
-In the present context, this lemma states that our projection $\skein{skein_figs/dec_tet_5}{0.08}$ 
+In the present context, this lemma states that our projection $\skein{dec_tet_5}{0.08}$ 
 satisfies the relation
 \begin{equation*}\tag{Half-braid}
-    \skein{/skein_figs/hb_top}{0.11} = \skein{/skein_figs/hb_bottom}{0.15}
+    \skein{hb_top}{0.11} = \skein{hb_bottom}{0.15}
 \end{equation*}
 where the unoriented red strand indicates that the equation 
 holds whenever we pick the same orientation for the left and right sides.
-Solving these new equations gives us the coordinates of the projection $F_4\left( \skein{skein_figs/dec_tet_5}{0.08} \right)$.
+Solving these new equations gives us the coordinates of the projection $F_4\left( \skein{dec_tet_5}{0.08} \right)$.
 
 
 \begin{theorem}\label{thm:init-D4-GPA-emb}
@@ -1471,7 +1471,7 @@ In order to discover these new relations,
 we hypothesize the form such a relation should take, impose that form, and solve for the structure constants.
 For example we would suppose, based the simplicity of $Y_4$ and the invertibility of $g_4$, that an equation of the form
 \[
-    F_k\left( \skein{/skein_figs/swap_LHS}{0.15} \right) = \omega F_k\left( \skein{/skein_figs/swap_RHS}{0.15} \right)
+    F_k\left( \skein{swap_LHS}{0.15} \right) = \omega F_k\left( \skein{swap_RHS}{0.15} \right)
 \]
 holds, for some $\omega$.
 By ($\Z_n$), $\omega$ must be an $n$-th root of 1.
@@ -1480,13 +1480,13 @@ a system of linear equations for one variable.
 
 Discovering the (decTrigon) structure constants is similarly reduced to solving a system of linear equations of the form
 \[
-F_k\left( \skein{/skein_figs/dec_trigon_LHS}{0.1} \right)= 
-        t_1 F_k\left( \skein{/skein_figs/trivalent}{0.1} \right) 
-        + t_2 F_k\left( \skein{/skein_figs/triv_rightUp}{0.1} \right)
+F_k\left( \skein{dec_trigon_LHS}{0.1} \right)= 
+        t_1 F_k\left( \skein{trivalent}{0.1} \right) 
+        + t_2 F_k\left( \skein{triv_rightUp}{0.1} \right)
 \]
 for $t_1$ and $t_2$.
 The same principle applies when searching for the relations (decTetragon) and (decPentagon).
-In practice, discovering that, e.g., the coefficient of the summand \skein{/skein_figs/dec_pent_RHS1}{0.07}
+In practice, discovering that, e.g., the coefficient of the summand \skein{dec_pent_RHS1}{0.07}
 in the (decPentagon) relation is $q^8 - q^4 + \frac{1}{q^4} + \frac{1}{q^2}$ 
 required the use of some novel computational algebraic number theory.
 For more details, see the author's PhD thesis \cite{hill_thesis}.
@@ -1566,7 +1566,7 @@ are all of the form
 \]
 where $c_i\in \Q(q_3+q_3^{-1})$, the maximal real subfield of $\Q(q_3)$, 
 and $\alpha$ is an algebraic number of degree 24 which appears as a coordinate of 
-$F_3 \left( \skein{skein_figs/trivalent}{0.08} \right)$.
+$F_3 \left( \skein{trivalent}{0.08} \right)$.
 For the relations (Change of Basis) and (decTrigon), the power basis coordinates of the $c_i$ are lowest form rational numbers 
 whose numerators have one or two digits.
 For (decTetragon), the numerators and denominators of the power basis coordinates of the $c_i$ have around 10 digits on average.
