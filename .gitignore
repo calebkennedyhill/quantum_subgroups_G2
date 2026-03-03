@@ -14,3 +14,4 @@
 *.json
 *.zip
 figs/.DS_Store
+*.py
