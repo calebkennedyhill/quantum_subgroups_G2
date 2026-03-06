@@ -433,7 +433,7 @@ level 4 conformal embedding of $\gg_2$.
     where $A_4$ is the algebra object corresponding to the level-4 conformal embedding given in Equation~\ref{eq:conf-embs}.
 \end{theorem}
 Theorem~\ref{thm:level-3} is an analogous theorem for level 3, where $\DD_3$ is defined similarly to $\DD_4$,
-with structure constants found on the author's GitHub.
+with structure constants found in the Mathematica files associated to this project.
 
 It is not clear a priori that the defining relations for, say, $\DD_4$ lead to a nontrivial tensor category.
 The general undecidability of the word problem for groups offers some evidence that this question is difficult
@@ -502,19 +502,19 @@ See \cite{EGNO, ostrik2001modulecategoriesweakhopf} for more complete descriptio
 The theory which will apply to our context is given in \cite{cain_noah}.
 Some basic properties concerning the interaction of algebra and module objects with
 monoidal functors will be used in the proof of our main theorems;
-this material can be found in \cite{monoidalFunctorsAndAlgebras}.
+this material is well known, and detailed proofs can be found in \cite{monoidalFunctorsAndAlgebras}.
 We restate a few definitions and facts here.
 Unless otherwise stated, we will be assuming the underlying tensor categories are braided.
 
 
 \begin{definition}
     Let $A$ be an algebra object of the braided tensor category $\CC$.
-    $A$ is an {\bf etale} algebra if it is commutative and separable.
+    We say $A$ is an {\bf etale} algebra if it is commutative and separable.
     We call $A$ {\bf connected} if it is etale and $\dim\Hom_\CC(\unit \to A)=1$.
 \end{definition}
 
 
-For an etale algebra object $A$ of $\CC$, we denote by $\CC_A$ the collection of right $A$-modules internal to $\CC$.
+For an etale algebra object $A$ of $\CC$, we denote by $\CC_A$ the category of right $A$-modules internal to $\CC$.
 As described in \cite{cain_noah}, commutativity of $A$ induces a tensor product on $\CC_A$.
 Separability of $A$ implies semisimplicity of $\CC_A$, 
 and connectedness of $A$ implies the unit $\unit_{\CC_A}=A$ is simple in $\CC_A$ \cite{DMNO}.
@@ -523,11 +523,12 @@ The etale conditions are precisely those required to perform the skein theory on
 to define the tensor product on $\CC_A$.
 Being etale is the same thing as multiplication having a section, which means we can pop $A$-bigons.
 Connected means there is only one $A$-cap and one $A$-cup.
-This lets us wiggle enough to perform the proof that $M\otimes_A N$ is well-defined.
+This lets us wiggle enough to prove that the monoidal product $M\otimes_A N$ 
+of right $A$-modules is well-defined.
 
 Furthermore, when $\CC$ is semisimple, the free functor 
 \[
-    \FF_A: \CC \xhookrightarrow{X\mapsto A\otimes X} \CC_A
+    \FF_A: \CC \xhookrightarrow{X\mapsto X\otimes A} \CC_A
 \]
 is faithful monoidal but, as we will see, not always full.
 Its right adjoint is the forgetful functor $\FF^\vee:\CC_A\to\CC$ 
@@ -536,7 +537,7 @@ and on morphisms as the identity.
 
 Beginning with the following lemma, which is recreated from \cite{exactSequencesTensorCategories},
 we now recall some facts that will help us along the way.
-These will consist of a few results, along with the basics of {\it conformal embeddings}.
+First, we note that the target of a monoidal functor is equivalent to some category of modules.
 
 \begin{lemma}\label{lem:exact-functor}
     Let $\FF:\CC\to\DD$ be a monoidal functor with faithful exact right adjoint $R$. 
@@ -550,6 +551,7 @@ These will consist of a few results, along with the basics of {\it conformal emb
     commutes up to natural isomorphism.
 \end{lemma}
 
+Next a well-known fact about $\dagger$-functors into unitary categories.
 
 \begin{lemma}\label{lem:simple-unit-unitary}
     Suppose $\CC$ has simple unit, $\DD$ is unitary, and $\FF:\CC\to \DD$ is a $\dagger$-functor.
@@ -566,7 +568,7 @@ These will consist of a few results, along with the basics of {\it conformal emb
 
 
 
-One result which will help immensely in arriving at GPA embeddings is the following,
+One result which will help immensely in computing GPA embeddings is the following,
 which is Lemma 2.4 of \cite{cain_noah}.
 Since the free functor $\FF_A$ gives an embedding $\CC \hookrightarrow \CC_A$, 
 the braid $c_{X,Y}$ in $\CC$ is mapped to $\FF_A(c_{X,Y})$ which defines a braided structure
@@ -588,9 +590,8 @@ of linear equations constraining the GPA coordinates
 of the morphisms not living in the image of $\FF_A$.
 Thus the half-braid relation will be key to our program, despite not being necessary to prove evaluability.
 
-
 The source of our algebra objects will be conformal embeddings.
-We direct the reader to \cite{DMNO} a more complete treatment.
+We direct the reader to \cite{DMNO} for a more complete treatment.
 For a vertex operator algebra $\VV(\gg,j)$, define $\CC(\gg,j) \coloneq \Rep(\VV(\gg,j))$.
 
 Affine Lie algebras and conformal embeddings will only be used to obtain algebra objects 
@@ -644,27 +645,29 @@ we see that at both levels $k=3,4$ we have
 
 
 \subsection{Unoriented Planar Algebras}
-Recall the theory of {\bf rigid} monoidal categories detailed in \cite{KW}. 
+Recall the theory of rigid monoidal categories detailed in \cite{KW}. 
 To put it succinctly, rigid monoidal categories have duals. 
 Duals, and the associated evaluation and coevaluation maps, give us cups and caps. 
-We also assume pivotality throughout, which gives us the ability to isotope diagrams. 
-The generators we will use for our planar algebras will be symmetrically self-dual.
+We also assume pivotality throughout, which gives us the freedom to isotope diagrams. 
+The generators we will use for our planar algebras will be symmetrically self-dual,
+thus freeing us from having to keep track of isotopy deformation of diagrams.
 
-Let $X$ be a (symmetrically self-dual) {\bf tensor generator} for the tensor category $\CC$; 
-that is, every object of $\CC$ is isomorphic to a subobject of some tensor power $X^{\otimes n}$. 
-Let $\PP_{X;\CC}$ be the full subcategory of $\CC$ whose objects are tensor powers $\unit=X^{\otimes0},X,X^{\otimes2},\dots$; 
+We call a symmetrically self-dual object $X$ a {\bf tensor generator} for the tensor category $\CC$ 
+if every object of $\CC$ is isomorphic to a subobject of some tensor power $X^{\otimes n}$. 
+Let $\PP_{X;\CC}$ be the full monoidal subcategory of $\CC$ whose objects are 
+tensor powers $\unit=X^{\otimes0},X,X^{\otimes2},\dots$; 
 we call this the (unoriented) {\bf planar algebra} generated by $X$ in $\CC$. 
 The planar algebra $\PP_{X;\CC}$ is {\bf evaluable} if $\dim\End_{\PP_{X;\CC}}(\unit)=1$. 
 
-We will be presenting the our two quantum subgroups as extensions of $\GG_2(q)$ skein theories, 
-in the spirit of Kuperberg \cite{Kuperberg,tricats}. 
+We will be presenting the two quantum subgroups as extensions of $\GG_2(q)$ skein theories, 
+in the sense of Kuperberg \cite{Kuperberg,tricats}. 
 Up to a rescaling by a factor of $\kappa = \sqrt{[7]-1}$ we use the same skein theory as \cite{tricats}
 (note the sign error in the \ref{eq:Pentagon} relation of \cite{Kuperberg}). 
 \begin{definition}
     For $q$ a root of unity, the $\GG_2(q)$ skein theory is defined to be that generated by an 
     unoriented trivalent vertex $\skein{trivalent}{0.05}$ satisfying the relations
     \begin{equation*}\tag{Loop}
-        \skein{loop}{0.1} = \delta = q^{10} + q^{8} + q^{2} + 1 + q^{-2} + q^{-8} + q^{-10}
+        \skein{loop}{0.1} = q^{10} + q^{8} + q^{2} + 1 + q^{-2} + q^{-8} + q^{-10}
     \end{equation*}
 
     \begin{equation*}\tag{Lollipop}\label{eq:Lolli}
@@ -702,11 +705,13 @@ Up to a rescaling by a factor of $\kappa = \sqrt{[7]-1}$ we use the same skein t
 Our use of planar algebras will depend entirely on the construction of the Cauchy completion,
 which we sketch here.
 See \cite{cain_noah} for more details and \cite{tuba_wenzl} for a full treatment of the topic.
-Recall that the {\bf idempotent completion} of a pivotal tensor category $\CC$ consists of pairs $(Z,p)$,
+Recall that the {\bf idempotent completion} of any category $\CC$ consists of pairs $(Z,p)$,
 where $p\in\End_\CC(Z)$ is an idempotent.
 We denote the idempotent completion of $\CC$ as $\Idemp(\CC)$.
-Further, we define the {\bf additive envelope} of a pivotal, $\C$-linear tensor category $\CC$
-to have objects formal direct sums $\bigoplus_j Z_j$ for objects $Z_j$ of $\CC$.
+Further, we define the {\bf additive envelope} of a pivotal category $\CC$
+to have objects formal direct sums $\bigoplus_i Z_i$ for objects $Z_i$ of $\CC$
+and morphisms $\bigoplus_i Z_i \to \bigoplus_j Z'_j$ consisting of matrices with
+$(k,l)$-entry a morphism $Z_k \to Z'_l$.
 The {\bf Cauchy completion} of $\CC$ is defined by 
 \[
     \Ab(\CC) \coloneq \Add(\Idemp(\CC)).
@@ -716,7 +721,8 @@ If we again assume $X$ tensor generates $\CC$, it follows that $\CC \cong \Ab(\P
 The universal property of $\Ab(\PP_{X;\CC})$ therefore implies 
 that studying $\PP_{X;\CC}$ is sufficient to understand $\CC$. 
 
-By \cite[Corollary 2.20]{bodish_triple_clasp_g2} and \cite[Corollary 6.7]{reconstructing_g2}, the category $\GG_2(q)$ is a {\bf presentation} for the category $\cat{q}$ in the sense that
+By \cite[Corollary 2.20]{bodish_triple_clasp_g2} and \cite[Corollary 6.7]{reconstructing_g2}, 
+the category $\GG_2(q)$ is a {\bf presentation} for the category $\cat{q}$ in the sense that
 \[
 \ol{\Rep(U_q(\gg_2))} \cong \Ab(\ol{\GG_2(q)}).
 \]
@@ -733,20 +739,20 @@ We will study the quantum subgroups of type $G_2$ by embedding their skein theor
 This serves two purposes:
 \begin{itemize}
     \item Giving us solid ground on which to do computations, allowing us to uncover relations by finding them in the GPA hom-spaces, and
-    \item Implying unitarity for the skein theories,
+    \item Implying unitarity for semisimple quotients of the skein theories,
 \end{itemize}
 GPAs are an invention of Vaughan Jones \cite{jones_GPA}.
 In this work we have no use for more general GPAs so we consider only the unoriented case. 
 
 \begin{definition}\label{def:GPA}
-    Let $\Gamma=(V,E)$ be a finite graph. 
+    Let $\Gamma=(V,E)$ be a finite undirected graph. 
     For an edge $e=(u,v)\in E$, let $\ol{e} \coloneq (v,u)\in E$. 
     The {\bf graph planar algebra} on $\Gamma$, denoted $\GPA(\Gamma)$, is the strictly pivotal rigid monoidal category 
     whose objects are nonnegative integers, and whose hom-spaces have basis
     \[
         \Hom_{\GPA(\Gamma)}(m\to n) \coloneqq \C\left\{ (p,q) \mid \substack{\text{$p$ an $m$-path} \\ \text{$q$ and $n$-path}}, \substack{\text{$s(p)=s(q)$}\\ \text{$t(p)=t(q)$}} \right\},
     \]
-    with composition law\footnote{With the convention $f\circ g \coloneq f(g)$.}
+    with composition law
     \[
         (p,q)\circ(p',q')\coloneqq \delta_{q=p'} (p,q'),
     \]
@@ -806,11 +812,11 @@ some measure of complexity for a closed diagram, then showing the known
 relations allow one to strictly decrease this measure. 
 For our underlying trivalent categories, {\it Euler-evaluability} allows us to 
 decrement one measure of complexity: number of internal faces. 
-With the new strand type, we have another measure: number of red strands. 
+With the new strand type, we have another measure: number of directed strands. 
 The underlying trivalent categories we deal with have evaluation algorithms based on the standard Euler characteristic argument.
 One way to capture this evaluability is by considering dimensions of box spaces.
 \begin{definition}
-    In a trivalent category we define a {\bf box space} $B(k,f)$ to be the span of diagrams $k\to0$ with $f$ internal faces.
+    In a trivalent category we define a {\bf box space} $B(k,l)$ to be the span of diagrams $k\to0$ with $l$ internal faces.
     If $\CC$ is a trivalent category such that, for $k=1,\dots,5$, the containment
     \[
     B(k,1) \subseteq B(k,0)
@@ -825,6 +831,7 @@ One way to capture this evaluability is by considering dimensions of box spaces.
 Diagrams inside a $\Z_n$-like extension exhibit the following nice properties, which will be key in proving their evaluability.
 Essentially, we use the following lemmas to exchange decorated faces for singly-externally-decorated faces.
 The defining relations for a $\Z_n$-like extension then pop the singly-decorated faces.
+We will assume a loop parameter of $\delta$ throughout.
 
 \begin{lemma}
     (1) ($\Z_n$) follows from (Recouple) and (Reverse).
@@ -867,7 +874,7 @@ The defining relations for a $\Z_n$-like extension then pop the singly-decorated
 
 
 \begin{lemma}
-    In a $\Z_n$-like extension, there exist $n$ scalars $s_i$ such that the following relation holds:
+    In a $\Z_n$-like extension, there exist $n$ scalars $s_i \in \C$ such that the following relation holds:
     \begin{equation*}\tag{Slide}
         \skein{slide_LHS}{0.1} 
         = \sum_{i=0}^{n-1} s_i \skein{slide_RHS2}{0.1}^i
@@ -1000,7 +1007,7 @@ One more lemma will complete our ability to evaluate closed diagrams in $\Z_n$-l
     this decreases the number of trivalent vertices.
     By the standard Euler characteristic calculation, there must remain some black $m$-gon with $m\in\{ 0,1,\dots,5 \}$.
     The $m=0$ case is handled at the end of this proof.
-    The $m=1$ case is handled by (Change of Basis) and (Schur 0). 
+    The $m=1$ case is handled by (Change of Basis), (decStick), and (Schur 0). 
     Choose one such face and apply Lemma~\ref{lem:ext-dec} to reduce it to a singly-externally-decorated $m$-gon.
     Now one of the relations (decBigon), (decTrigon), (decTetragon), or (decPentagon) allows us to pop the face.
     This process decreases the number of faces (ignoring red strands) in diagrams by at least 1 at every step,
@@ -1158,16 +1165,14 @@ One may give a monoidal functor $F:\GG_2(q) \to \GPA(\Gamma)$ by specifying the 
 \[
 F\left( \skein{trivalent}{0.08} \right) \in \Hom_{\GPA(\Gamma)}(2\to1).
 \]
-This amounts to giving a list of $M\coloneqq\tr(\Gamma^2\cdot\Gamma)$ complex numbers\footnote{
-    We freely switch between using $\Gamma$ to mean the graph itself and the graph's adjacency matrix. }, 
-say $a_1,\dots,a_M$. 
+This amounts to giving a list of $M\coloneqq\tr(\Gamma^2\cdot\Gamma)$ complex numbers, $a_1,\dots,a_M$. 
+Note that we freely switch between using $\Gamma$ to mean the graph itself and the graph's adjacency matrix.
 Pushing the defining relations of $\GG_2(q)$ through $F$, we see that 
 these complex numbers satisfy equations in the $a_i$ and $\ol{a_i}$. 
 If we assume for now that each $a_i$ is real, then this reduces the system to a collection 
-of polynomials in the $a_i$. \footnote{
-    This assumption is useful only if it turns out to help us solve the system. 
-    In fact, any assumptions we make about this system, if they yield solutions, are valid.
-    }
+of polynomials in the $a_i$. This assumption is useful only if it turns out to help us solve the system. 
+In fact, any assumptions we make about this system, if they yield solutions, are valid.
+This assumption of real coefficients has precedent \cite{Cain_Dan}.
 Once we have the image of the trivalent vertex in hand, we have found an embedding of the planar algebra it generates. 
 We can then follow a similar approach to solve for the image
 \[
@@ -1208,9 +1213,8 @@ below the theorem.
     \[
         (p_1,q_1),\dots,(p_M,q_M)
     \]
-    be the defining basis\footnote{ 
-        See the attached Mathematica files for the specific ordering chosen. } 
-    for $\Hom_{\GPA(\Gamma_4)}(2\to1)$; at level 4 we have $M=88$. 
+    be the defining basis for $\Hom_{\GPA(\Gamma_4)}(2\to1)$; at level 4 we have $M=88$. 
+    See the attached Mathematica files for the specific ordering chosen.
     Then it must be that 
     \[
         F_4 \left( \skein{trivalent}{0.08} \right) = a_1(p_1,q_1)+\cdots+ a_M(p_M,q_M)
@@ -1228,8 +1232,8 @@ below the theorem.
     This is verified in the Mathematica notebook \verb|/code/level-4/nb-6_verify-g.nb|.
 \end{proof}
 
-The above proof does not mention the process used to arrive at such a definition of $F_4$.
-We briefly mention it here.
+The above proof does not mention the process used to arrive at such a definition of $F_4$,
+so we briefly mention it here.
 For more details, see the author's PhD thesis \cite{hill_thesis}.
 
 To go about solving these equations, it is often useful to solve the linear subsystem first and substitute the solution into the quadratic equations. 
@@ -1270,7 +1274,7 @@ We repeat the process and obtain the additional values
     a_{63} & = \sqrt{2+\sqrt{3}-\sqrt{2+\sqrt{3}}} \\
 \end{align*}
 These six values begin a cascade of equation solving. 
-They, along with the linear solution, reduce many of the original high-order equations to linear. 
+They, along with the linear solution, reduce many of the high-order equations to linear. 
 We solve those, then repeat the process until we're forced to confront nonlinearity. 
 The nonlinearity we encounter forces us to extract square roots, and ending up with a few degree-16 algebraic numbers. 
 For instance,
@@ -1304,8 +1308,8 @@ In practice, we are relying on the fact that the free functor gives an embedding
 \[
     \ol{\Rep(U_{q_4}(\gg_2))} \hookrightarrow \ol{\Rep(U_{q_4}(\gg_2))}_{A_4}
 \]
-which takes the simple $\otimes$-generator $X_4$ to a simple $\otimes$-generator $Y_4\coloneq \FF_{A_4}(X_4)$.\footnote{
-    Simplicity of $Y_4$ may be easily checked using the $X_4$ fusion graph of $\ol{\Rep(U_{q_4}(\gg_2))}$. }
+which takes the simple $\otimes$-generator $X_4$ to a simple $\otimes$-generator $Y_4\coloneq \FF_{A_4}(X_4)$.
+Simplicity of $Y_4$ may be easily checked using the $X_4$ fusion graph of $\ol{\Rep(U_{q_4}(\gg_2))}$.
 Combine this with the facts that $\ol{\Rep(U_{q_4}(\gg_2))}_{A_4}$ contains a subcategory equivalent to $\Vecc{\Z_2}$,
 and that both of the grouplike simples are subobjects of the square of the $\otimes$-generator $Y_4$.
 One concludes that $\Hom_{\ol{\Rep(U_{q_4}(\gg_2))}_{A_4}}(Y_4^{\otimes2}\to Y_4^{\otimes2})$ 
@@ -1468,7 +1472,7 @@ In order to discover these new relations,
 we hypothesize the form such a relation should take, impose that form, and solve for the structure constants.
 For example we would suppose, based the simplicity of $Y_4$ and the invertibility of $g_4$, that an equation of the form
 \[
-    F_k\left( \skein{swap_LHS}{0.15} \right) = \omega F_k\left( \skein{swap_RHS}{0.15} \right)
+    F_4\left( \skein{swap_LHS}{0.15} \right) = \omega F_4\left( \skein{swap_RHS}{0.15} \right)
 \]
 holds, for some $\omega$.
 By ($\Z_n$), $\omega$ must be an $n$-th root of 1.
@@ -1477,15 +1481,15 @@ a system of linear equations for one variable.
 
 Discovering the (decTrigon) structure constants is similarly reduced to solving a system of linear equations of the form
 \[
-F_k\left( \skein{dec_trigon_LHS}{0.1} \right)= 
-        t_1 F_k\left( \skein{trivalent}{0.1} \right) 
-        + t_2 F_k\left( \skein{triv_rightUp}{0.1} \right)
+F_4\left( \skein{dec_trigon_LHS}{0.1} \right)= 
+        t_1 F_4\left( \skein{trivalent}{0.1} \right) 
+        + t_2 F_4\left( \skein{triv_rightUp}{0.1} \right)
 \]
 for $t_1$ and $t_2$.
 The same principle applies when searching for the relations (decTetragon) and (decPentagon).
 In practice, discovering that, e.g., the coefficient of the summand \skein{dec_pent_RHS1}{0.07}
 in the (decPentagon) relation is $q^8 - q^4 + \frac{1}{q^4} + \frac{1}{q^2}$ 
-required the use of some novel computational algebraic number theory.
+required the use of some nontrivial computational algebraic number theory techniques.
 For more details, see the author's PhD thesis \cite{hill_thesis}.
 
 
@@ -1523,7 +1527,7 @@ and \ref{thm:D4-new-relns} we have the following corollary.
     onto the semisimple quotient.
 \end{proof}
 Later, we will take the Karoubi completion of this embedding.
-For now, we turn to a discussion of how we obtain the $\DD_4$ structure constants.
+For now, we turn to a discussion of level 3.
 
 
 
@@ -1552,9 +1556,9 @@ For now, we turn to a discussion of how we obtain the $\DD_4$ structure constant
 
 \subsection{Level 3 Trivalent Embedding}
 We now tell a similar story, but at level 3.
-However, for the trivalent coefficients we use numerical approximations here, 
-and relegate the actual numbers to the attached Mathematica files.
-We were unable to find reader-friendly representations of the GPA-embedding coordinates or structure constants.
+We were unable to find reader-friendly representations of the GPA-embedding coordinates or structure constants,
+so we exclusively use numerical approximations. 
+The actual numbers are relegated to the Mathematica files.
 The coordinates for the trivalent GPA embedding were algebraic numbers of degree 12 or 24.
 Even worse, the structure constants for the relations (Change of Basis), (decTrigon), (decTetragon), and (decPentagon) 
 are all of the form
@@ -1785,11 +1789,11 @@ Now we are in a position to prove Theorem~\ref{thm:level-4}.
 
     Now, chasing the object $1_{ \ol{\GG_2(q_4)}}$ through the leftmost path on this diagram, we have 
     \[
-        1_{ \ol{\GG_2(q_4)}} \mapsto V_{\Lambda_1} \mapsto B_4 \otimes V_{\Lambda_1}.
+        1_{ \ol{\GG_2(q_4)}} \mapsto V_{\Lambda_1} \mapsto V_{\Lambda_1} \otimes B_4 .
     \]
     If it was true that $B_4\cong \unit$, we would have 
     \[
-        \dim \Hom_{\ol{ \Rep(U_{q_4}(\gg_2))}_{B_4}}((B_4 \otimes V_{\Lambda_1})^{\otimes 2} \to B_4 \otimes V_{\Lambda_1}) = 1.
+        \dim \Hom_{\ol{ \Rep(U_{q_4}(\gg_2))}_{B_4}}((V_{\Lambda_1} \otimes B_4)^{\otimes 2} \to V_{\Lambda_1} \otimes B_4) = 1.
     \]
     Now let us chase the object $1$ along the top rightmost path to demonstrate that this is not the case.
     Along this second path we have
@@ -1799,7 +1803,7 @@ Now we are in a position to prove Theorem~\ref{thm:level-4}.
     Set $\CC_4 \coloneq \ol{ \Rep(U_{q_4}(\gg_2))}$.
     Now we note that
     \begin{align*}
-        \dim \Hom_{(\CC_4)_{B_4}}((B_4 \otimes V_{\Lambda_1})^{\otimes 2} \to B_4 \otimes V_{\Lambda_1}) & = 
+        \dim \Hom_{(\CC_4)_{B_4}}((V_{\Lambda_1} \otimes B_4)^{\otimes 2} \to V_{\Lambda_1} \otimes B_4) & = 
             \dim \Hom_{(\CC_4)_{B_4}}((\KK\circ\JJ(1_{\ol{\DD_4}}))^{\otimes 2} \to \KK\circ\JJ(1_{\ol{\DD_4}})) \\
         & = \dim \Hom_{\Ab( \ol{\DD_4} )}((\JJ(1_{\ol{\DD_4}}))^{\otimes 2} \to \JJ(1_{\ol{\DD_4}})) \\
         & = \dim \Hom_{\ol{\DD_4} }( (1_{\ol{\DD_4}})^{\otimes 2} \to 1_{\ol{\DD_4}}) \\
